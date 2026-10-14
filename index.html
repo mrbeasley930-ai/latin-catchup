@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Year 10 Latin &mdash; Half-Term Catch-Up</title>
+<style>
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family: Georgia,'Palatino Linotype',serif; background: linear-gradient(135deg,#1a3a52 0%,#0f1419 55%,#2d1b4e 100%);
+    background-attachment: fixed; color:#e9e4d4; min-height:100vh; padding:20px 16px 60px; line-height:1.55; }
+  .wrap { max-width:920px; margin:0 auto; }
+  header { text-align:center; margin-bottom:18px; }
+  .logo { font-size:38px; color:#d4af37; letter-spacing:5px; text-shadow:2px 2px 5px rgba(0,0,0,.6); }
+  .lat { font-size:14px; color:#8fb3c9; letter-spacing:2px; margin-top:2px; font-style:italic; }
+  .sub { color:#c9b97a; font-style:italic; margin-top:8px; font-size:15px; }
+  .spec { color:#7e93a3; font-size:12.5px; margin-top:4px; letter-spacing:1px; }
+  .toplinks { margin-top:8px; font-size:13px; }
+  .toplinks a, a.lnk { color:#d4af37; }
+  .tablebar { display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:center;
+    background:rgba(20,34,46,.85); border:1px solid #36617f; border-radius:8px; padding:10px 14px; margin-bottom:16px; }
+  .scorepill { background:linear-gradient(135deg,#d4af37,#b8860b); color:#15222e; font-weight:bold; border-radius:20px; padding:6px 16px; font-size:14px; }
+  .tabs { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-bottom:20px; }
+  .tab { padding:9px 13px; font-family:Georgia,serif; font-size:13px; font-weight:bold; background:linear-gradient(135deg,#244b66 0%,#15304a 100%); color:#e9e4d4;
+    border:2px solid #d4af37; border-radius:6px; cursor:pointer; transition:all .2s; }
+  .tab:hover { box-shadow:0 0 12px rgba(212,175,55,.5); transform:translateY(-2px); }
+  .tab.active { background:linear-gradient(135deg,#d4af37 0%,#b8860b 100%); color:#15222e; }
+  .tab .done { font-size:11px; color:#5cc98a; } .tab.active .done { color:#15304a; }
+  .panel { display:none; } .panel.active { display:block; animation:fade .3s ease; }
+  @keyframes fade { from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:none;} }
+  .card { background:rgba(20,34,46,.92); border:2px solid #36617f; border-radius:10px; padding:22px 24px; margin-bottom:18px; box-shadow:0 0 22px rgba(0,0,0,.4); }
+  .card h2 { color:#d4af37; font-size:22px; margin-bottom:6px; }
+  .card h3 { color:#f0e7c8; font-size:16px; margin:16px 0 8px; } .card h3.h3top { margin-top:0; }
+  .card p { margin-bottom:11px; color:#d7d2c2; }
+  .lead { color:#d4af37; font-weight:bold; }
+  .pill { display:inline-block; background:rgba(212,175,55,.12); border:1px solid #d4af37; border-radius:18px; padding:3px 13px; color:#d4af37; font-size:12.5px; margin:3px; }
+  .pill.done { border-color:#5cc98a; color:#5cc98a; }
+  .note { color:#8fb3c9; font-size:13px; font-style:italic; }
+  .bookpage { background:#fbf7ea; color:#22303c; border-radius:8px; border:1px solid #d8cfae; padding:18px 22px 16px; margin:12px 0 6px; box-shadow:0 4px 14px rgba(0,0,0,.35);
+    background-image:repeating-linear-gradient(transparent, transparent 27px, #e3dcc2 27px, #e3dcc2 28px); line-height:28px; font-size:15px; overflow-x:auto; user-select:none; -webkit-user-select:none; }
+  .bookpage .bp-date { float:right; color:#5a6b7c; font-size:13.5px; }
+  .bookpage .bp-title { font-weight:bold; text-decoration:underline; color:#1F3864; font-size:16px; }
+  .bookpage .bp-rule { border:2px solid #1F3864; border-radius:4px; padding:2px 10px; display:inline-block; margin:6px 0 2px; background:rgba(46,117,182,.07); font-weight:bold; line-height:1.5; }
+  .bookpage table { border-collapse:collapse; margin:6px 0; background:#fffdf6; line-height:1.4; }
+  .bookpage table th, .bookpage table td { border:1px solid #8fa3b8; padding:3px 10px; font-size:13.5px; color:#22303c; }
+  .bookpage table th { background:#e8eef7; color:#1F3864; }
+  .bookpage i { color:#1F3864; }
+  .todo { background:rgba(212,175,55,.08); border-left:4px solid #d4af37; border-radius:6px; padding:10px 16px 10px 16px; margin:10px 0; font-size:14.5px; }
+  .todo ol { margin:6px 0 0 20px; } .todo li { margin:3px 0; }
+  .copybar { display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin:10px 0 4px; background:rgba(212,175,55,.1); border:1px dashed #d4af37; border-radius:8px; padding:10px 14px; }
+  .copybar .cb-txt { font-size:13.5px; color:#e9e4d4; }
+  .btn-unlock { padding:9px 16px; font-family:Georgia,serif; font-size:13.5px; font-weight:bold; cursor:pointer; border-radius:6px; border:2px solid #5cc98a; background:transparent; color:#5cc98a; transition:all .2s; }
+  .btn-unlock:hover { background:rgba(92,201,138,.15); } .btn-unlock.doneit { background:#5cc98a; color:#15222e; cursor:default; }
+  .qs-locked { display:none; }
+  .lockmsg { text-align:center; color:#8fb3c9; font-size:13.5px; font-style:italic; padding:14px; border:1px dashed #36617f; border-radius:8px; margin-top:12px; }
+  .qcount { color:#8fb3c9; font-size:12.5px; letter-spacing:1px; text-transform:uppercase; margin-bottom:4px; }
+  .qtext { font-size:16.5px; color:#f0e7c8; margin-bottom:10px; }
+  .qtext .lat, .qtext i { color:#d4af37; font-style:italic; }
+  .helpline { background:rgba(36,75,102,.4); border-left:3px solid #8fb3c9; border-radius:5px; padding:8px 13px; margin:-2px 0 10px; font-size:13.5px; color:#cfe0ec; }
+  .helpline b { color:#d4af37; } .helpline:empty { display:none; }
+  .opts { display:flex; flex-direction:column; gap:9px; }
+  .opt { text-align:left; padding:11px 15px; font-family:Georgia,serif; font-size:15px; background:rgba(36,75,102,.45); color:#e9e4d4; border:2px solid #36617f; border-radius:7px; cursor:pointer; transition:all .15s; }
+  .opt:hover:not(.locked) { border-color:#d4af37; background:rgba(36,75,102,.85); }
+  .opt.correct { border-color:#5cc98a; background:rgba(92,201,138,.22); } .opt.wrong { border-color:#e07a6b; background:rgba(224,122,107,.2); } .opt.locked { cursor:default; }
+  .fb { margin-top:11px; padding:11px 14px; border-radius:7px; font-size:14px; display:none; } .fb.show { display:block; }
+  .fb.good { background:rgba(92,201,138,.14); border-left:4px solid #5cc98a; } .fb.bad { background:rgba(224,122,107,.13); border-left:4px solid #e07a6b; } .fb b { color:#d4af37; }
+  .wtext { width:100%; min-height:60px; margin:4px 0; padding:9px 11px; font-family:Georgia,serif; font-size:15px; background:rgba(15,26,36,.7); color:#f0e7c8; border:2px solid #36617f; border-radius:7px; resize:vertical; }
+  .wtext:focus { outline:none; border-color:#d4af37; box-shadow:0 0 8px rgba(212,175,55,.3); }
+  .btnrow { display:flex; flex-wrap:wrap; gap:10px; margin-top:12px; align-items:center; }
+  .btn { padding:8px 16px; font-family:Georgia,serif; font-size:13.5px; font-weight:bold; cursor:pointer; border-radius:6px; transition:all .2s; }
+  .btn-gold { background:linear-gradient(135deg,#d4af37,#b8860b); color:#15222e; border:none; } .btn-gold:hover { box-shadow:0 0 14px rgba(212,175,55,.6); }
+  .btn-ghost { background:#244b66; color:#e9e4d4; border:2px solid #d4af37; } .btn-ghost:hover { background:#2d5a7a; }
+  .btn:disabled { opacity:.45; cursor:default; }
+  .model-box { margin-top:12px; padding:12px 15px; border-radius:7px; background:rgba(45,27,78,.45); border-left:4px solid #d4af37; font-size:15px; display:none; }
+  .model-box.show { display:block; } .model-box b { color:#d4af37; } .model-box i { color:#f0e7c8; }
+  .tipline { margin-top:8px; font-size:13.5px; color:#cfe0ec; border-top:1px dashed rgba(212,175,55,.4); padding-top:6px; }
+  .selfmark { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; align-items:center; }
+  .sm { padding:7px 13px; font-family:Georgia,serif; font-size:13.5px; font-weight:bold; cursor:pointer; border-radius:6px; border:2px solid; background:transparent; }
+  .sm.nailed { border-color:#5cc98a; color:#5cc98a; } .sm.close { border-color:#d4af37; color:#d4af37; } .sm.notyet { border-color:#e07a6b; color:#e07a6b; } .sm.chosen { background:rgba(255,255,255,.14); }
+  .instance { border-top:1px solid rgba(54,97,127,.5); padding-top:16px; margin-top:16px; } .instance:first-child { border-top:none; padding-top:0; margin-top:0; }
+  .board { width:100%; border-collapse:collapse; margin-top:12px; font-size:14px; }
+  .board th, .board td { border:1px solid #36617f; padding:8px 10px; text-align:left; } .board th { background:rgba(212,175,55,.15); color:#d4af37; } .board td.n { color:#f0e7c8; font-weight:bold; }
+  .big-score { font-size:40px; color:#d4af37; text-align:center; margin:6px 0; } .cta { text-align:center; color:#8fb3c9; font-size:13.5px; }
+  .dayend { margin-top:16px; padding:12px 14px; border-radius:8px; background:rgba(92,201,138,.08); border:1px dashed #5cc98a; font-size:14px; display:none; } .dayend.show { display:block; }
+  footer { text-align:center; color:#5f7282; font-size:12px; margin:26px 0 8px; }
+  /* sources */
+  .srcbox { background:rgba(36,75,102,.22); border:1px solid #36617f; border-radius:9px; padding:12px 14px; margin:8px 0 12px; }
+  .srctitle { color:#d4af37; font-weight:bold; letter-spacing:1px; margin-bottom:6px; }
+  table.src { width:100%; border-collapse:collapse; font-size:14px; }
+  table.src td { vertical-align:top; padding:5px 8px; border-bottom:1px dashed rgba(54,97,127,.6); width:50%; }
+  table.src td:first-child { color:#c9b97a; font-style:italic; }
+  /* triclinium plan */
+  .tricl { margin:8px 0; font-size:13px; line-height:1.4; }
+  .tc { border:2px solid #1F3864; border-radius:6px; padding:6px 8px; background:#fffdf6; text-align:center; }
+  .tc-med { margin:0 auto 6px; width:70%; }
+  .tc-row { display:flex; gap:6px; align-items:stretch; }
+  .tc-sum, .tc-imus { flex:1; } .tc-tab { flex:1; border-style:dashed; display:flex; align-items:center; justify-content:center; }
+  .tc-open { margin:6px auto 0; width:70%; border-style:dotted; color:#5a6b7c; }
+  /* vocab check */
+  .vrow { display:grid; grid-template-columns:1.1fr 1.4fr auto; gap:8px; align-items:center; padding:7px 0; border-bottom:1px dashed rgba(54,97,127,.6); }
+  .vrow .vl { font-style:italic; color:#f0e7c8; font-size:15px; } .vrow .vset { font-size:11px; color:#8fb3c9; margin-left:4px; font-style:normal; }
+  .vrow input { font-family:Georgia,serif; font-size:14.5px; padding:7px 10px; background:rgba(15,26,36,.7); color:#f0e7c8; border:2px solid #36617f; border-radius:7px; width:100%; }
+  .vrow input:focus { outline:none; border-color:#d4af37; } .vrow input.ok { border-color:#5cc98a; } .vrow input.no { border-color:#e07a6b; }
+  .vans { grid-column:1 / -1; font-size:13px; color:#cfe0ec; }
+  .vans.good { color:#5cc98a; } .vans.bad { color:#e07a6b; }
+  @media (max-width:600px){ .vrow { grid-template-columns:1fr; } .tc-med,.tc-open{ width:100%; } table.src td { display:block; width:100%; } .bookpage { padding:14px 12px; } .card { padding:16px 14px; } }
+  @media print { body{background:#fff;color:#000;} .tabs,.btnrow,.tablebar,.copybar,footer,.toplinks{display:none!important;} .panel{display:block!important;} .qs-locked{display:block!important;} .bookpage{box-shadow:none;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo">FUNDAMENTA</div>
+    <div class="lat">fundamenta iacimus &middot; we lay the foundations</div>
+    <div class="sub">Year 10 Latin &mdash; <b>Half-Term Catch-Up</b></div>
+    <div class="spec">Eduqas GCSE &middot; ten short days &middot; comparatives &middot; superlatives &middot; hic &amp; ille &middot; dinner parties &middot; Chapter 7 words</div>
+    <div class="toplinks"><a href="notes.html" target="_blank">How to keep your notes</a> &nbsp;&middot;&nbsp; <a href="parents.html" target="_blank">For parents</a></div>
+  </header>
+  <div class="tablebar">
+    <span id="whoami" class="note">Not signed in yet</span>
+    <span class="scorepill">Score: <span id="scoreNow">0</span> / <span id="scoreMax">0</span></span>
+    <span id="savestatus" class="note"></span>
+    <button class="btn btn-ghost" onclick="signOut()">Switch user</button>
+  </div>
+  <div class="tabs" id="tabs"></div>
+
+  <div class="panel active" id="p-start">
+    <div class="card">
+      <h2>What this is</h2>
+      <p><span class="lead">Over the last half term your class covered nine lessons that you did not sit,</span> because you were doing your Focus Lessons instead. This catch-up takes those nine lessons and gives you one a day, in a shape that suits you: short, with every Latin word explained on the page, and nothing timed.</p>
+      <p>Each day takes about <b>40 minutes</b>. Do one day a day, in order, with a break in the middle if you want one. If you miss a day, do not try to do two the next day: just carry on with the next one. Days 5 and 9 are civilisation days, in English, and are a change of pace.</p>
+      <h3>How each day works</h3>
+      <p><b>1. Read the notes and type them into your notes file.</b> Every day starts with the page the class copied into their exercise books. You type it instead, into one notes file on your computer. <a class="lnk" href="notes.html" target="_blank">This page shows you how to set the file up</a> &mdash; read it before Day 1. The questions unlock when you tick that the notes are typed.</p>
+      <p><b>2. Answer the questions.</b> Ten (or eight) questions, one attempt each, marked straight away with the reason. The grey line under every question gives you every Latin word you need, so you are never guessing a word: you are only ever choosing an ending.</p>
+      <p><b>3. Write it up.</b> Two or three short sentences to translate or build, with a model answer to check against and marks you give yourself honestly. Mr Beasley reads these afterwards.</p>
+      <h3>The ten days</h3>
+      <p id="pillrow"><span class="pill" id="pill_d1">Day 1 &middot; Comparatives</span><span class="pill" id="pill_d2">Day 2 &middot; Than, two ways</span><span class="pill" id="pill_d3">Day 3 &middot; Superlatives</span><span class="pill" id="pill_d4">Day 4 &middot; Irregulars</span><span class="pill" id="pill_d5">Day 5 &middot; Dinner Parties 1</span><span class="pill" id="pill_d6">Day 6 &middot; Superlative adverbs</span><span class="pill" id="pill_d7">Day 7 &middot; hic, haec, hoc</span><span class="pill" id="pill_d8">Day 8 &middot; ille, illa, illud</span><span class="pill" id="pill_d9">Day 9 &middot; Dinner Parties 2</span><span class="pill" id="pill_d10">Day 10 &middot; Vocab & review</span></p>
+      <p class="note">Your work saves to the class store every time you answer, so you can stop and come back, on any computer, and your score and ticks will be there. Sign in with class code <b>Y10</b> and your name, exactly as you do for Focus Lessons.</p>
+    </div>
+  </div>
+
+  <div class="panel" id="p-d1">
+    <div class="card">
+      <h2>Day 1 &middot; Comparatives: braver, happier, more stupid</h2>
+      <p class="spec">Lesson 6 &middot; about 40 minutes &middot; 10 questions, 3 written</p>
+      <p><span class="lead">What the class did.</span> Lesson 6 was the first new grammar of the year: the <b>comparative</b> adjective &mdash; the <i>-er</i> / <i>more</i> form. English says <i>braver</i>, <i>happier</i>, <i>more stupid</i>. Latin adds <b>-ior</b> to the adjective. Then it says <b>than</b> with the word <b>quam</b>.</p>
+<p>You already know how to find the doer (nominative) and the object (accusative). Today only adds one new ending, <b>-ior</b>, and one new word, <b>quam</b>. Every verb below is <i>est</i> (is) or <i>sunt</i> (are).</p>
+    </div>
+    <div class="card">
+      <h3 class="h3top">1 &middot; Read the notes, then type them into your notes file</h3>
+      <p>Read the page below twice. Then open your notes file and type the things in the list underneath it. Typing them is the point: it is how they go in. <a class="lnk" href="notes.html" target="_blank">How to set up the notes file</a>.</p>
+      <div class="bookpage"><span class="bp-date">[today&rsquo;s date]</span><span class="bp-title">Comparative Adjectives &mdash; &ldquo;more X&rdquo; / &ldquo;X-er&rdquo;</span><br>
+<b>1. Make it:</b> take the adjective&rsquo;s <b>genitive stem</b> (second word of the entry, knock off the ending) and add <b>-ior</b>.<br>
+<table><tr><th>adjective</th><th>genitive</th><th>stem</th><th>comparative</th><th>meaning</th></tr>
+<tr><td><i>laetus</i></td><td><i>laeti</i></td><td><i>laet-</i></td><td><i>laetior</i></td><td>happier</td></tr>
+<tr><td><i>fortis</i></td><td><i>fortis</i></td><td><i>fort-</i></td><td><i>fortior</i></td><td>braver</td></tr>
+<tr><td><i>ingens</i></td><td><i>ingentis</i></td><td><i>ingent-</i></td><td><i>ingentior</i></td><td>more huge</td></tr>
+<tr><td><i>pulcher</i></td><td><i>pulchri</i></td><td><i>pulchr-</i></td><td><i>pulchrior</i></td><td>more beautiful</td></tr></table>
+<b>2. Its endings:</b> a comparative is a 3rd-declension word, like <i>miles</i>. Doer: <i>fortior</i> (one), <i>fortiores</i> (many). Object: <i>fortiorem</i> (one), <i>fortiores</i> (many). A neuter thing (<i>bellum</i>, <i>donum</i>) uses <b>-ius</b>: <i>bellum longius</i> = a longer war.<br>
+<b>3. than = quam.</b> The word after <i>quam</i> has the <b>same ending</b> as the word being compared.<br>
+<i>servus stultior est quam dominus.</i> = The slave is more stupid than the master.<br>
+<span class="bp-rule">genitive stem + -ior &middot; declines like miles &middot; quam = than, same case both sides</span></div>
+      <div class="todo"><b>Type into your notes file:</b><ol><li>the heading <b>Day 1 &mdash; Comparatives</b> and today&rsquo;s date</li><li>the four-row table (adjective &middot; genitive &middot; stem &middot; comparative &middot; meaning)</li><li>the line: <i>a comparative is a 3rd-declension word, like miles: fortior, fortiorem, fortiores</i></li><li>the boxed rule, in bold</li><li>the example sentence with its English underneath</li></ol></div>
+      <div class="copybar"><span class="cb-txt">Typed and saved?</span><button class="btn-unlock" id="unlock_d1" onclick="tickNotes('d1')">&#10003; I have typed today&rsquo;s notes</button></div>
+      <div class="lockmsg" id="lock_d1">The questions unlock when you have typed the notes.</div>
+    </div>
+    <div class="qs-locked" id="qs_d1">
+      
+      <div class="card">
+        <h3 class="h3top">2 &middot; 10 questions &mdash; one attempt each, marked straight away</h3>
+        <p class="note">Every Latin word you need is in the grey line under the question. Look at it before you answer. If you get one wrong, read the reason: that is the learning.</p>
+        <div id="mc_d1"></div>
+      </div>
+      <div class="card">
+        <h3>Write it up</h3><div class="instance">
+  <div class="qcount">Latin to English &middot; T1</div>
+  <div class="qtext"><span class="lat">dominus stultior est quam servus.</span></div>
+  <div class="helpline"><b>dominus, domini</b> master &middot; <b>stultus</b> stupid, so <b>stultior</b> = more stupid &middot; <b>est</b> is &middot; <b>quam</b> than &middot; <b>servus, servi</b> slave</div>
+  <textarea class="wtext" id="trans_in_0" oninput="saveText('trans',0)" placeholder="Type your English translation..."></textarea>
+  <div class="btnrow"><button class="btn btn-gold" id="trans_show_0" onclick="showModel('trans',0)">Show the model answer</button><span class="note">Write first, then look.</span></div>
+  <div class="model-box" id="trans_model_0"><b>Model:</b> The master is more stupid than the slave.<div class="tipline"><i>dominus</i> is the doer and carries <i>stultior</i>; <i>quam servus</i> = than the slave. &lsquo;The slave is more stupid than the master&rsquo; has the comparison backwards = 0. &lsquo;The master is stupid&rsquo; (no <i>more</i>, no <i>than</i>) = 1.</div></div>
+  <div class="selfmark" id="trans_sm_0" style="display:none"><span class="note">Mark yourself &mdash; <b>1 mark = the sense of the sentence; 2 marks = every word and ending right.</b></span>
+    <button class="sm nailed" onclick="selfMark('trans',0,2,this)">2 &#10003;</button><button class="sm close" onclick="selfMark('trans',0,1,this)">1 nearly</button><button class="sm notyet" onclick="selfMark('trans',0,0,this)">0 not yet</button></div>
+</div><div class="instance">
+  <div class="qcount">Latin to English &middot; T2</div>
+  <div class="qtext"><span class="lat">filia laetior est quam filius.</span></div>
+  <div class="helpline"><b>filia, filiae</b> daughter &middot; <b>laetior</b> happier &middot; <b>est</b> is &middot; <b>quam</b> than &middot; <b>filius, filii</b> son</div>
+  <textarea class="wtext" id="trans_in_1" oninput="saveText('trans',1)" placeholder="Type your English translation..."></textarea>
+  <div class="btnrow"><button class="btn btn-gold" id="trans_show_1" onclick="showModel('trans',1)">Show the model answer</button><span class="note">Write first, then look.</span></div>
+  <div class="model-box" id="trans_model_1"><b>Model:</b> The daughter is happier than the son.<div class="tipline"><i>filia</i> first, with <i>laetior</i>: the daughter is the happier one. Backwards = 0. &lsquo;The daughter is happy&rsquo; = 1.</div></div>
+  <div class="selfmark" id="trans_sm_1" style="display:none"><span class="note">Mark yourself &mdash; <b>1 mark = the sense of the sentence; 2 marks = every word and ending right.</b></span>
+    <button class="sm nailed" onclick="selfMark('trans',1,2,this)">2 &#10003;</button><button class="sm close" onclick="selfMark('trans',1,1,this)">1 nearly</button><button class="sm notyet" onclick="selfMark('trans',1,0,this)">0 not yet</button></div>
+</div><div class="instance">
+  <div class="qcount">English to Latin &middot; L1</div>
+  <div class="qtext">The sailor is braver than the soldier.</div>
+  <div class="helpline"><b>nauta, nautae (m.)</b> sailor &middot; <b>fortis</b> brave &rarr; <b>fortior</b> braver &middot; <b>est</b> is &middot; <b>quam</b> than &middot; <b>miles, militis</b> soldier<br>Word bank: nauta / nautam &middot; fortior / fortis / fortiorem &middot; est / sunt &middot; quam &middot; miles / militem</div>
+  <textarea class="wtext" id="latin_in_0" oninput="saveText('latin',0)" placeholder="Type your Latin..." spellcheck="false"></textarea>
+  <div class="btnrow"><button class="btn btn-gold" id="latin_show_0" onclick="showModel('latin',0)">Show the model answer</button><span class="note">Write first, then look.</span></div>
+  <div class="model-box" id="latin_model_0"><b>Model:</b> nauta fortior est quam miles.<div class="tipline"><i>nauta</i> = the sailor, doing it (nominative). <i>fortior</i> = braver, one. <i>est</i> = is. <i>quam miles</i>: same ending as <i>nauta</i>, so nominative <i>miles</i>, not <i>militem</i>. Word order can change; the endings cannot.</div></div>
+  <div class="selfmark" id="latin_sm_0" style="display:none"><span class="note">Mark yourself &mdash; <b>2 = every word and ending right; 1 = one ending wrong; 0 = more than one.</b></span>
+    <button class="sm nailed" onclick="selfMark('latin',0,2,this)">2 &#10003;</button><button class="sm close" onclick="selfMark('latin',0,1,this)">1 nearly</button><button class="sm notyet" onclick="selfMark('latin',0,0,this)">0 not yet</button></div>
+</div>
+        <div class="dayend" id="dayend_d1"></div>
+      </div>
+    </div>
+  </div>
+  <div class="panel" id="p-d2">
+    <div class="card">
+      <h2>Day 2 &middot; Than without quam: the ablative of comparison, and multo</h2>
+      <p class="spec">Lesson 7 &middot; about 40 minutes &middot; 10 questions, 3 written</p>
+      <p><span class="lead">What the class did.</span> Lesson 7 took <i>quam</i> away. Latin has a second way to say <b>than</b>: leave <i>quam</i> out and put the other person into the <b>ablative</b> case. <i>servus stultior est domino</i> = the slave is more stupid than the master. The class also met <b>multo</b> = much, as in &lsquo;much braver&rsquo;.</p>
+<p>The ablative is a case you have seen but not used much. Today you only need its singular endings: <b>-a</b> (1st declension), <b>-o</b> (2nd) and <b>-e</b> (3rd), and the plurals <b>-is</b>, <b>-is</b>, <b>-ibus</b>.</p>
+    </div>
+    <div class="card">
+      <h3 class="h3top">1 &middot; Read the notes, then type them into your notes file</h3>
+      <p>Read the page below twice. Then open your notes file and type the things in the list underneath it. Typing them is the point: it is how they go in. <a class="lnk" href="notes.html" target="_blank">How to set up the notes file</a>.</p>
+      <div class="bookpage"><span class="bp-date">[today&rsquo;s date]</span><span class="bp-title">Two Ways to Say THAN &mdash; and multo</span><br>
+<b>1. With quam</b> (Day 1): same ending both sides. <i>servus stultior est quam dominus.</i><br>
+<b>2. Without quam</b> &mdash; the <b>ablative of comparison</b>: drop <i>quam</i>, put the other person into the ablative. <i>servus stultior est domino.</i> = The slave is more stupid than the master.<br>
+<table><tr><th>ablative</th><th>1st (puella)</th><th>2nd (servus)</th><th>3rd (miles, rex)</th></tr>
+<tr><td>one</td><td><i>puella</i></td><td><i>servo</i></td><td><i>milite, rege</i></td></tr>
+<tr><td>many</td><td><i>puellis</i></td><td><i>servis</i></td><td><i>militibus, regibus</i></td></tr></table>
+<b>3. multo</b> = much, by much: <i>multo stultior</i> = much more stupid. It sits in front of the comparative and never changes.<br>
+<b>Three traps.</b> (a) Never <i>quam</i> AND the ablative together. (b) A 1st-declension ablative (<i>puella</i>) looks like a nominative: find the doer by the verb first. (c) An ablative with a preposition in front (<i>in villa</i>, <i>cum servo</i>) is never &lsquo;than&rsquo;.<br>
+<span class="bp-rule">quam + same case &middot; OR no quam + ablative &middot; multo = much &middot; never quam + ablative</span></div>
+      <div class="todo"><b>Type into your notes file:</b><ol><li>the heading <b>Day 2 &mdash; Than, two ways</b> and the date</li><li>the two example sentences, one with <i>quam</i>, one without, with the English</li><li>the ablative table (three declensions, one and many)</li><li><i>multo = much</i>, with the example</li><li>the three traps and the boxed rule</li></ol></div>
+      <div class="copybar"><span class="cb-txt">Typed and saved?</span><button class="btn-unlock" id="unlock_d2" onclick="tickNotes('d2')">&#10003; I have typed today&rsquo;s notes</button></div>
+      <div class="lockmsg" id="lock_d2">The questions unlock when you have typed the notes.</div>
+    </div>
+    <div class="qs-locked" id="qs_d2">
+      
+      <div class="card">
+        <h3 class="h3top">2 &middot; 10 questions &mdash; one attempt each, marked straight away</h3>
+        <p class="note">Every Latin word you need is in the grey line under the question. Look at it before you answer. If you get one wrong, read the reason: that is the learning.</p>
+        <div id="mc_d2"></div>
+      </div>
+      <div class="card">
+        <h3>Write it up</h3><div class="instance">
+  <div class="qcount">Latin to English &middot; T3</div>
+  <div class="qtext"><span class="lat">puella laetior est servo.</span></div>
+  <div class="helpline"><b>puella, puellae</b> girl &middot; <b>laetior</b> happier &middot; <b>est</b> is &middot; <b>servus, servi</b> slave &mdash; <i>servo</i> = ablative, no <i>quam</i></div>
+  <textarea class="wtext" id="trans_in_2" oninput="saveText('trans',2)" placeholder="Type your English translation..."></textarea>
+  <div class="btnrow"><button class="btn btn-gold" id="trans_show_2" onclick="showModel('trans',2)">Show the model answer</button><span class="note">Write first, then look.</span></div>
+  <div class="model-box" id="trans_model_2"><b>Model:</b> The girl is happier than the slave.<div class="tipline"><i>servo</i> is &lsquo;than the slave&rsquo;. &lsquo;To the slave&rsquo; or &lsquo;with the slave&rsquo; = 0, because a bare ablative beside a comparative is <i>than</i>. &lsquo;The girl is happy&rsquo; = 1.</div></div>
+  <div class="selfmark" id="trans_sm_2" style="display:none"><span class="note">Mark yourself &mdash; <b>1 mark = the sense of the sentence; 2 marks = every word and ending right.</b></span>
+    <button class="sm nailed" onclick="selfMark('trans',2,2,this)">2 &#10003;</button><button class="sm close" onclick="selfMark('trans',2,1,this)">1 nearly</button><button class="sm notyet" onclick="selfMark('trans',2,0,this)">0 not yet</button></div>
+</div><div class="instance">
+  <div class="qcount">Latin to English &middot; T4</div>
+  <div class="qtext"><span class="lat">nautae multo fortiores sunt militibus.</span></div>
+  <div class="helpline"><b>nauta, nautae (m.)</b> sailor &middot; <b>multo</b> much &middot; <b>fortiores</b> braver (many) &middot; <b>sunt</b> are &middot; <b>miles, militis</b> soldier &mdash; <i>militibus</i> = ablative plural</div>
+  <textarea class="wtext" id="trans_in_3" oninput="saveText('trans',3)" placeholder="Type your English translation..."></textarea>
+  <div class="btnrow"><button class="btn btn-gold" id="trans_show_3" onclick="showModel('trans',3)">Show the model answer</button><span class="note">Write first, then look.</span></div>
+  <div class="model-box" id="trans_model_3"><b>Model:</b> The sailors are much braver than the soldiers.<div class="tipline"><i>nautae</i> are the doers (<i>sunt</i>, plural). <i>multo</i> = much. <i>militibus</i> = than the soldiers. Backwards = 0; &lsquo;much&rsquo; missing = 1.</div></div>
+  <div class="selfmark" id="trans_sm_3" style="display:none"><span class="note">Mark yourself &mdash; <b>1 mark = the sense of the sentence; 2 marks = every word and ending right.</b></span>
+    <button class="sm nailed" onclick="selfMark('trans',3,2,this)">2 &#10003;</button><button class="sm close" onclick="selfMark('trans',3,1,this)">1 nearly</button><button class="sm notyet" onclick="selfMark('trans',3,0,this)">0 not yet</button></div>
+</div><div class="instance">
+  <div class="qcount">English to Latin &middot; L2</div>
+  <div class="qtext">The master is more stupid than the slave. (Write it WITHOUT quam.)</div>
+  <div class="helpline"><b>dominus, domini</b> master &middot; <b>stultus</b> &rarr; <b>stultior</b> &middot; <b>est</b> is &middot; <b>servus, servi</b> slave<br>Word bank: dominus / dominum &middot; stultior / stultus &middot; est / sunt &middot; servo / servus / servum</div>
+  <textarea class="wtext" id="latin_in_1" oninput="saveText('latin',1)" placeholder="Type your Latin..." spellcheck="false"></textarea>
+  <div class="btnrow"><button class="btn btn-gold" id="latin_show_1" onclick="showModel('latin',1)">Show the model answer</button><span class="note">Write first, then look.</span></div>
+  <div class="model-box" id="latin_model_1"><b>Model:</b> dominus stultior est servo.<div class="tipline">No <i>quam</i>, so the slave goes into the ablative: <i>servo</i>. <i>dominus</i> is the doer. <i>quam servo</i> = 1 (trap a). <i>servum</i> = 1.</div></div>
+  <div class="selfmark" id="latin_sm_1" style="display:none"><span class="note">Mark yourself &mdash; <b>2 = every word and ending right; 1 = one ending wrong; 0 = more than one.</b></span>
+    <button class="sm nailed" onclick="selfMark('latin',1,2,this)">2 &#10003;</button><button class="sm close" onclick="selfMark('latin',1,1,this)">1 nearly</button><button class="sm notyet" onclick="selfMark('latin',1,0,this)">0 not yet</button></div>
+</div>
+        <div class="dayend" id="dayend_d2"></div>
+      </div>
+    </div>
+  </div>
+  <div class="panel" id="p-d3">
+    <div class="card">
+      <h2>Day 3 &middot; Superlatives: very brave, the bravest</h2>
+      <p class="spec">Lesson 8 &middot; about 40 minutes &middot; 10 questions, 3 written</p>
+      <p><span class="lead">What the class did.</span> Lesson 8 added the <b>superlative</b>: <i>-est</i> / <i>most</i> / <i>very</i>. Latin adds <b>-issimus</b> to the genitive stem: <i>fortissimus</i> = very brave, the bravest. It then takes the endings of <i>bonus, bona, bonum</i>, so it agrees with its noun like any ordinary adjective.</p>
+<p>Two small groups change the ending: adjectives ending in <b>-er</b> (<i>pulcher</i> &rarr; <i>pulcherrimus</i>) and <i>facilis</i> / <i>difficilis</i> (&rarr; <i>facillimus</i>). And a &lsquo;genitive plural&rsquo; after it (<i>omnium</i>, of all) turns &lsquo;very&rsquo; into &lsquo;the most &hellip; of&rsquo;.</p>
+    </div>
+    <div class="card">
+      <h3 class="h3top">1 &middot; Read the notes, then type them into your notes file</h3>
+      <p>Read the page below twice. Then open your notes file and type the things in the list underneath it. Typing them is the point: it is how they go in. <a class="lnk" href="notes.html" target="_blank">How to set up the notes file</a>.</p>
+      <div class="bookpage"><span class="bp-date">[today&rsquo;s date]</span><span class="bp-title">The Superlative &mdash; -issimus: very &hellip; / the most &hellip;</span><br>
+<b>1. Make it:</b> genitive stem + <b>-issimus, -issima, -issimum</b>. Then the endings of <i>bonus</i>.<br>
+<i>laetus, laeti</i> &rarr; <i>laetissimus</i> &middot; <i>fortis, fortis</i> &rarr; <i>fortissimus</i> &middot; <i>ingens, ingentis</i> &rarr; <i>ingentissimus</i><br>
+<table><tr><th></th><th>m</th><th>f</th><th>n</th></tr>
+<tr><td>doer, one</td><td><i>fortissimus</i></td><td><i>fortissima</i></td><td><i>fortissimum</i></td></tr>
+<tr><td>object, one</td><td><i>fortissimum</i></td><td><i>fortissimam</i></td><td><i>fortissimum</i></td></tr>
+<tr><td>doer, many</td><td><i>fortissimi</i></td><td><i>fortissimae</i></td><td><i>fortissima</i></td></tr></table>
+<b>2. Two small groups.</b> <i>-er</i> adjectives: <i>pulcher</i> &rarr; <i>pulcherrimus</i>, <i>miser</i> &rarr; <i>miserrimus</i>. <i>facilis</i> &rarr; <i>facillimus</i>, <i>difficilis</i> &rarr; <i>difficillimus</i>.<br>
+<b>3. Two English versions.</b> <i>fortissimus</i> = <b>very brave</b>, or <b>the bravest</b>. A genitive plural after it = &ldquo;the most &hellip; <b>of</b>&rdquo;: <i>fortissimus omnium</i> = the bravest of all.<br>
+<b>Keep apart:</b> <i>-ior</i> = MORE (braver) &middot; <i>-issimus</i> = MOST / VERY (bravest).<br>
+<span class="bp-rule">genitive stem + -issimus &middot; -er &rarr; -errimus &middot; facilis &rarr; facillimus &middot; endings of bonus &middot; -ior = more, -issimus = most</span></div>
+      <div class="todo"><b>Type into your notes file:</b><ol><li>the heading <b>Day 3 &mdash; Superlatives</b> and the date</li><li>the three examples (<i>laetissimus, fortissimus, ingentissimus</i>)</li><li>the table of endings (m / f / n)</li><li>the two small groups, with <i>pulcherrimus</i> and <i>facillimus</i></li><li>the line <i>-ior = more, -issimus = most / very</i>, and the boxed rule</li></ol></div>
+      <div class="copybar"><span class="cb-txt">Typed and saved?</span><button class="btn-unlock" id="unlock_d3" onclick="tickNotes('d3')">&#10003; I have typed today&rsquo;s notes</button></div>
+      <div class="lockmsg" id="lock_d3">The questions unlock when you have typed the notes.</div>
+    </div>
+    <div class="qs-locked" id="qs_d3">
+      
+      <div class="card">
+        <h3 class="h3top">2 &middot; 10 questions &mdash; one attempt each, marked straight away</h3>
+        <p class="note">Every Latin word you need is in the grey line under the question. Look at it before you answer. If you get one wrong, read the reason: that is the learning.</p>
+        <div id="mc_d3"></div>
+      </div>
+      <div class="card">
+        <h3>Write it up</h3><div class="instance">
+  <div class="qcount">Latin to English &middot; T5</div>
+  <div class="qtext"><span class="lat">miles fortissimus est.</span></div>
+  <div class="helpline"><b>miles, militis</b> soldier &middot; <b>fortissimus</b> very brave / the bravest &middot; <b>est</b> is</div>
+  <textarea class="wtext" id="trans_in_4" oninput="saveText('trans',4)" placeholder="Type your English translation..."></textarea>
+  <div class="btnrow"><button class="btn btn-gold" id="trans_show_4" onclick="showModel('trans',4)">Show the model answer</button><span class="note">Write first, then look.</span></div>
+  <div class="model-box" id="trans_model_4"><b>Model:</b> The soldier is very brave.<div class="tipline">&lsquo;The soldier is the bravest&rsquo; is also right. &lsquo;The soldier is braver&rsquo; (comparative) = 1. &lsquo;The soldiers&rsquo; = 1.</div></div>
+  <div class="selfmark" id="trans_sm_4" style="display:none"><span class="note">Mark yourself &mdash; <b>1 mark = the sense of the sentence; 2 marks = every word and ending right.</b></span>
+    <button class="sm nailed" onclick="selfMark('trans',4,2,this)">2 &#10003;</button><button class="sm close" onclick="selfMark('trans',4,1,this)">1 nearly</button><button class="sm notyet" onclick="selfMark('trans',4,0,this)">0 not yet</button></div>
+</div><div class="instance">
+  <div class="qcount">Latin to English &middot; T6</div>
+  <div class="qtext"><span class="lat">puella pulcherrima omnium est.</span></div>
+  <div class="helpline"><b>puella</b> girl &middot; <b>pulcherrima</b> very beautiful / most beautiful (f.) &middot; <b>omnium</b> of all &middot; <b>est</b> is</div>
+  <textarea class="wtext" id="trans_in_5" oninput="saveText('trans',5)" placeholder="Type your English translation..."></textarea>
+  <div class="btnrow"><button class="btn btn-gold" id="trans_show_5" onclick="showModel('trans',5)">Show the model answer</button><span class="note">Write first, then look.</span></div>
+  <div class="model-box" id="trans_model_5"><b>Model:</b> The girl is the most beautiful of all.<div class="tipline"><i>omnium</i> after the superlative = &lsquo;the most &hellip; of all&rsquo;. &lsquo;The girl is very beautiful&rsquo; with <i>of all</i> missing = 1.</div></div>
+  <div class="selfmark" id="trans_sm_5" style="display:none"><span class="note">Mark yourself &mdash; <b>1 mark = the sense of the sentence; 2 marks = every word and ending right.</b></span>
+    <button class="sm nailed" onclick="selfMark('trans',5,2,this)">2 &#10003;</button><button class="sm close" onclick="selfMark('trans',5,1,this)">1 nearly</button><button class="sm notyet" onclick="selfMark('trans',5,0,this)">0 not yet</button></div>
+</div><div class="instance">
+  <div class="qcount">English to Latin &middot; L3</div>
+  <div class="qtext">The slave is very stupid.</div>
+  <div class="helpline"><b>servus, servi</b> slave &middot; <b>stultus</b> stupid &rarr; <b>stultissimus</b> &middot; <b>est</b> is<br>Word bank: servus / servum &middot; stultissimus / stultior / stultissimi &middot; est / sunt</div>
+  <textarea class="wtext" id="latin_in_2" oninput="saveText('latin',2)" placeholder="Type your Latin..." spellcheck="false"></textarea>
+  <div class="btnrow"><button class="btn btn-gold" id="latin_show_2" onclick="showModel('latin',2)">Show the model answer</button><span class="note">Write first, then look.</span></div>
+  <div class="model-box" id="latin_model_2"><b>Model:</b> servus stultissimus est.<div class="tipline"><i>servus</i>: one slave, the doer. <i>stultissimus</i>: masculine, one, nominative, matching <i>servus</i>. <i>stultior</i> = 1 (that is &lsquo;more stupid&rsquo;). <i>stultissimi</i> = 1 (plural).</div></div>
+  <div class="selfmark" id="latin_sm_2" style="display:none"><span class="note">Mark yourself &mdash; <b>2 = every word and ending right; 1 = one ending wrong; 0 = more than one.</b></span>
+    <button class="sm nailed" onclick="selfMark('latin',2,2,this)">2 &#10003;</button><button class="sm close" onclick="selfMark('latin',2,1,this)">1 nearly</button><button class="sm notyet" onclick="selfMark('latin',2,0,this)">0 not yet</button></div>
+</div>
+        <div class="dayend" id="dayend_d3"></div>
+      </div>
+    </div>
+  </div>
+  <div class="panel" id="p-d4">
+    <div class="card">
+      <h2>Day 4 &middot; The irregulars: good, better, best</h2>
+      <p class="spec">Lesson 10 &middot; about 40 minutes &middot; 10 questions, 3 written</p>
+      <p><span class="lead">What the class did.</span> English says <i>good, better, best</i>, not <i>good, gooder, goodest</i>. Latin does the same with five common adjectives. Lesson 10 learnt those five sets by heart: <i>bonus, melior, optimus</i> and the rest.</p>
+<p>Nothing new in the endings: the comparatives decline like <i>fortior</i> (Day 1) and the superlatives like <i>bonus</i> (Day 3). The only job today is to learn the five sets. English words help: <b>optimist</b>, <b>pessimist</b>, <b>major</b>, <b>minor</b>, <b>maximum</b>, <b>minimum</b>, <b>plural</b>.</p>
+    </div>
+    <div class="card">
+      <h3 class="h3top">1 &middot; Read the notes, then type them into your notes file</h3>
+      <p>Read the page below twice. Then open your notes file and type the things in the list underneath it. Typing them is the point: it is how they go in. <a class="lnk" href="notes.html" target="_blank">How to set up the notes file</a>.</p>
+      <div class="bookpage"><span class="bp-date">[today&rsquo;s date]</span><span class="bp-title">Irregular Comparison &mdash; the five sets</span><br>
+<table><tr><th></th><th>ordinary</th><th>comparative</th><th>superlative</th><th>English from it</th></tr>
+<tr><td>good</td><td><i>bonus</i></td><td><i>melior</i> better</td><td><i>optimus</i> best, very good</td><td>optimist</td></tr>
+<tr><td>bad</td><td><i>malus</i></td><td><i>peior</i> worse</td><td><i>pessimus</i> worst, very bad</td><td>pessimist</td></tr>
+<tr><td>big</td><td><i>magnus</i></td><td><i>maior</i> bigger</td><td><i>maximus</i> biggest, very big</td><td>major, maximum</td></tr>
+<tr><td>small</td><td><i>parvus</i></td><td><i>minor</i> smaller</td><td><i>minimus</i> smallest, very small</td><td>minor, minimum</td></tr>
+<tr><td>much / many</td><td><i>multus</i></td><td><i>plus</i> (pl. <i>plures</i>) more</td><td><i>plurimus</i> most, very many</td><td>plural, plus</td></tr></table>
+Endings: the comparatives go like <i>fortior</i> (<i>melior, meliorem, meliores</i>; neuter <i>melius</i>). The superlatives go like <i>bonus</i> (<i>optimus, optima, optimum</i>).<br>
+<span class="bp-rule">bonus melior optimus &middot; malus peior pessimus &middot; magnus maior maximus &middot; parvus minor minimus &middot; multus plus plurimus</span></div>
+      <div class="todo"><b>Type into your notes file:</b><ol><li>the heading <b>Day 4 &mdash; Irregulars</b> and the date</li><li>the five-row table, all four columns (leave out the English column if you like, but say the words aloud as you type: <i>bonus, melior, optimus</i>)</li><li>the endings line</li><li>the boxed rule</li></ol></div>
+      <div class="copybar"><span class="cb-txt">Typed and saved?</span><button class="btn-unlock" id="unlock_d4" onclick="tickNotes('d4')">&#10003; I have typed today&rsquo;s notes</button></div>
+      <div class="lockmsg" id="lock_d4">The questions unlock when you have typed the notes.</div>
+    </div>
+    <div class="qs-locked" id="qs_d4">
+      
+      <div class="card">
+        <h3 class="h3top">2 &middot; 10 questions &mdash; one attempt each, marked straight away</h3>
+        <p class="note">Every Latin word you need is in the grey line under the question. Look at it before you answer. If you get one wrong, read the reason: that is the learning.</p>
+        <div id="mc_d4"></div>
+      </div>
+      <div class="card">
+        <h3>Write it up</h3><div class="instance">
+  <div class="qcount">Latin to English &middot; T7</div>
+  <div class="qtext"><span class="lat">dominus peior est quam servus.</span></div>
+  <div class="helpline"><b>dominus</b> master &middot; <b>peior</b> worse &middot; <b>est</b> is &middot; <b>quam</b> than &middot; <b>servus</b> slave</div>
+  <textarea class="wtext" id="trans_in_6" oninput="saveText('trans',6)" placeholder="Type your English translation..."></textarea>
+  <div class="btnrow"><button class="btn btn-gold" id="trans_show_6" onclick="showModel('trans',6)">Show the model answer</button><span class="note">Write first, then look.</span></div>
+  <div class="model-box" id="trans_model_6"><b>Model:</b> The master is worse than the slave.<div class="tipline"><i>peior</i> = worse (comparative of <i>malus</i>). Backwards = 0; &lsquo;bad&rsquo; or &lsquo;worst&rsquo; = 1.</div></div>
+  <div class="selfmark" id="trans_sm_6" style="display:none"><span class="note">Mark yourself &mdash; <b>1 mark = the sense of the sentence; 2 marks = every word and ending right.</b></span>
+    <button class="sm nailed" onclick="selfMark('trans',6,2,this)">2 &#10003;</button><button class="sm close" onclick="selfMark('trans',6,1,this)">1 nearly</button><button class="sm notyet" onclick="selfMark('trans',6,0,this)">0 not yet</button></div>
+</div><div class="instance">
+  <div class="qcount">Latin to English &middot; T8</div>
+  <div class="qtext"><span class="lat">rex maximus omnium est.</span></div>
+  <div class="helpline"><b>rex</b> king &middot; <b>maximus</b> greatest, biggest, very great &middot; <b>omnium</b> of all &middot; <b>est</b> is</div>
+  <textarea class="wtext" id="trans_in_7" oninput="saveText('trans',7)" placeholder="Type your English translation..."></textarea>
+  <div class="btnrow"><button class="btn btn-gold" id="trans_show_7" onclick="showModel('trans',7)">Show the model answer</button><span class="note">Write first, then look.</span></div>
+  <div class="model-box" id="trans_model_7"><b>Model:</b> The king is the greatest of all.<div class="tipline">&lsquo;The king is the biggest of all&rsquo; is also right. &lsquo;Very great&rsquo; with <i>of all</i> missing = 1. &lsquo;Bigger&rsquo; = 1.</div></div>
+  <div class="selfmark" id="trans_sm_7" style="display:none"><span class="note">Mark yourself &mdash; <b>1 mark = the sense of the sentence; 2 marks = every word and ending right.</b></span>
+    <button class="sm nailed" onclick="selfMark('trans',7,2,this)">2 &#10003;</button><button class="sm close" onclick="selfMark('trans',7,1,this)">1 nearly</button><button class="sm notyet" onclick="selfMark('trans',7,0,this)">0 not yet</button></div>
+</div><div class="instance">
+  <div class="qcount">English to Latin &middot; L4</div>
+  <div class="qtext">The girl is better than the boy.</div>
+  <div class="helpline"><b>puella, puellae</b> girl &middot; <b>bonus</b> &rarr; <b>melior</b> better &middot; <b>est</b> is &middot; <b>quam</b> than &middot; <b>puer, pueri</b> boy<br>Word bank: puella / puellam &middot; melior / melius / optima &middot; est / sunt &middot; quam &middot; puer / puerum</div>
+  <textarea class="wtext" id="latin_in_3" oninput="saveText('latin',3)" placeholder="Type your Latin..." spellcheck="false"></textarea>
+  <div class="btnrow"><button class="btn btn-gold" id="latin_show_3" onclick="showModel('latin',3)">Show the model answer</button><span class="note">Write first, then look.</span></div>
+  <div class="model-box" id="latin_model_3"><b>Model:</b> puella melior est quam puer.<div class="tipline"><i>puella</i> doer; <i>melior</i> (m/f form, one); <i>quam puer</i> &mdash; same ending as <i>puella</i>, nominative. <i>optima</i> = 1 (that is &lsquo;best&rsquo;). <i>puerum</i> after <i>quam</i> = 1. <i>puella melior est puero</i> (ablative, Day 2) is also fully right.</div></div>
+  <div class="selfmark" id="latin_sm_3" style="display:none"><span class="note">Mark yourself &mdash; <b>2 = every word and ending right; 1 = one ending wrong; 0 = more than one.</b></span>
+    <button class="sm nailed" onclick="selfMark('latin',3,2,this)">2 &#10003;</button><button class="sm close" onclick="selfMark('latin',3,1,this)">1 nearly</button><button class="sm notyet" onclick="selfMark('latin',3,0,this)">0 not yet</button></div>
+</div>
+        <div class="dayend" id="dayend_d4"></div>
+      </div>
+    </div>
+  </div>
+  <div class="panel" id="p-d5">
+    <div class="card">
+      <h2>Day 5 &middot; Dinner Parties 1: the Roman day and its meals</h2>
+      <p class="spec">Lesson 4 &middot; about 40 minutes &middot; 8 questions, 2 written</p>
+      <p><span class="lead">What the class did.</span> Lesson 4 was a civilisation lesson, in English: how a Roman&rsquo;s day was built towards dinner. The class copied the hour-by-hour timetable, learnt the three meals, and answered questions on a poem by Martial that walks through the day hour by hour.</p>
+<p>No Latin endings today. You need to learn some facts and some words, and practise answering a source question in full sentences. Read the notes, type them, then answer. On the two written questions, <b>use a detail from the source</b> in your answer &mdash; that is what the second mark is for.</p>
+    </div>
+    <div class="card">
+      <h3 class="h3top">1 &middot; Read the notes, then type them into your notes file</h3>
+      <p>Read the page below twice. Then open your notes file and type the things in the list underneath it. Typing them is the point: it is how they go in. <a class="lnk" href="notes.html" target="_blank">How to set up the notes file</a>.</p>
+      <div class="bookpage"><span class="bp-date">[today&rsquo;s date]</span><span class="bp-title">The Roman Day &mdash; and its Three Meals</span><br>
+A Roman day ran from sunrise to sunset and was cut into <b>twelve hours</b>. An hour was a twelfth of that day&rsquo;s daylight, so it was long in summer (about 75 minutes) and short in winter (about 44 minutes). <b>hora sexta</b> (the sixth hour) was always midday.<br>
+<table><tr><th>Hour</th><th>What was happening</th><th>The Latin word</th></tr>
+<tr><td>1st&ndash;2nd</td><td>the morning call: clients queue at their patron&rsquo;s door</td><td><i>salutatio</i></td></tr>
+<tr><td>3rd&ndash;5th</td><td>business: the forum, the courts, trade</td><td></td></tr>
+<tr><td>6th</td><td>midday: a cold snack, then rest</td><td><i>prandium</i></td></tr>
+<tr><td>7th</td><td>work ends</td><td></td></tr>
+<tr><td>8th</td><td>exercise, then the baths</td><td><i>palaestra, balneae</i></td></tr>
+<tr><td>9th onwards</td><td><b>THE CENA</b> &mdash; the diners recline</td><td><i>cena, triclinium</i></td></tr></table>
+<table><tr><th>Meal</th><th>When</th><th>What</th><th>Its character</th></tr>
+<tr><td><i>ientaculum</i></td><td>first light</td><td>bread, cheese, olives, fruit</td><td>tiny, often skipped</td></tr>
+<tr><td><i>prandium</i></td><td>about the 6th hour</td><td>cold food, leftovers</td><td>quick, no ceremony</td></tr>
+<tr><td><i>cena</i></td><td>from about the 9th hour</td><td>the full meal, in courses, reclining</td><td>THE meal: social, unhurried</td></tr></table>
+<b>Words:</b> <i>cena</i> = dinner, the main meal &middot; <i>convivium</i> = a dinner party (&ldquo;living together&rdquo;) &middot; <i>triclinium</i> = dining room &middot; <i>salutatio</i> = the morning call.<br>
+<span class="bp-rule">The Roman day is built towards dinner &middot; two snacks and one meal &middot; an hour is a twelfth of the daylight</span></div>
+      <div class="todo"><b>Type into your notes file:</b><ol><li>the heading <b>Day 5 &mdash; Dinner Parties 1</b> and the date</li><li>the hour-by-hour table (six rows)</li><li>the three-meals table</li><li>the four words with their meanings</li><li>the boxed rule</li></ol></div>
+      <div class="copybar"><span class="cb-txt">Typed and saved?</span><button class="btn-unlock" id="unlock_d5" onclick="tickNotes('d5')">&#10003; I have typed today&rsquo;s notes</button></div>
+      <div class="lockmsg" id="lock_d5">The questions unlock when you have typed the notes.</div>
+    </div>
+    <div class="qs-locked" id="qs_d5">
+      <div class="card"><div class="srcbox"><div class="srctitle">SOURCE A &middot; Martial, <i>Epigrams</i> 4.8</div>
+<p class="note">A poem to Euphemus, the emperor Domitian&rsquo;s steward. It goes through the day hour by hour. Read the English; the Latin is there so you can see what the class saw.</p>
+<table class="src">
+<tr><td><i>prima salutantes atque altera conterit hora,</i></td><td>The first hour and the second wear out those paying their morning calls,</td></tr>
+<tr><td><i>exercet raucos tertia causidicos,</i></td><td>the third keeps the hoarse advocates hard at work,</td></tr>
+<tr><td><i>in quintam varios extendit Roma labores,</i></td><td>into the fifth Rome stretches out her varied business,</td></tr>
+<tr><td><i>sexta quies lassis, septima finis erit,</i></td><td>the sixth will be rest for the weary, the seventh the end of it all,</td></tr>
+<tr><td><i>sufficit in nonam nitidis octava palaestris,</i></td><td>the eighth is enough, until the ninth, for the oiled wrestling-grounds,</td></tr>
+<tr><td><i>imperat extructos frangere nona toros:</i></td><td>the ninth orders us to press down the piled-up dining couches:</td></tr>
+<tr><td><i>hora libellorum decuma est, Eupheme, meorum,</i></td><td>the tenth hour, Euphemus, belongs to my little books,</td></tr>
+<tr><td><i>temperat ambrosias cum tua cura dapes</i></td><td>when your care is preparing the ambrosial feast</td></tr>
+<tr><td><i>et bonus aetherio laxatur nectare Caesar</i></td><td>and good Caesar unwinds with heavenly nectar</td></tr>
+<tr><td><i>ingentique tenet pocula parca manu.</i></td><td>and holds a modest cup in his enormous hand.</td></tr>
+</table></div></div>
+      <div class="card">
+        <h3 class="h3top">2 &middot; 8 questions &mdash; one attempt each, marked straight away</h3>
+        <p class="note">Every Latin word you need is in the grey line under the question. Look at it before you answer. If you get one wrong, read the reason: that is the learning.</p>
+        <div id="mc_d5"></div>
+      </div>
+      <div class="card">
+        <h3>Source questions &mdash; write in sentences</h3><div class="instance">
+  <div class="qcount">Question &middot; T9</div>
+  <div class="qtext"><span class="">Using Source A, give two things a Roman did before dinner, and say at which hour each one happened.</span></div>
+  <div class="helpline">Write two or three sentences. Name the activity, name the hour, and quote or closely paraphrase the line of the poem it comes from.</div>
+  <textarea class="wtext" id="trans_in_8" oninput="saveText('trans',8)" placeholder="Type your answer in full sentences..."></textarea>
+  <div class="btnrow"><button class="btn btn-gold" id="trans_show_8" onclick="showModel('trans',8)">Show the model answer</button><span class="note">Write first, then look.</span></div>
+  <div class="model-box" id="trans_model_8"><b>Model:</b> Model: In the first and second hours people paid their morning calls (&ldquo;the first hour and the second wear out those paying their morning calls&rdquo;). At the eighth hour they exercised at the wrestling-grounds (&ldquo;the eighth is enough &hellip; for the oiled wrestling-grounds&rdquo;). Other right answers: the advocates at work in the third hour; rest at the sixth; work ending at the seventh.<div class="tipline"><b>1 mark = a correct point. 2 marks = the point supported by a detail from the source.</b> Answer in sentences, not notes. Two activities each with the hour and a detail from the poem = 2. Two activities with no hour, or hours with no detail from the poem = 1. One activity = 1.</div></div>
+  <div class="selfmark" id="trans_sm_8" style="display:none"><span class="note">Mark yourself &mdash; <b>1 mark = a correct point. 2 marks = the point supported by a detail from the source.</b> Answer in sentences, not notes.</span>
+    <button class="sm nailed" onclick="selfMark('trans',8,2,this)">2 &#10003;</button><button class="sm close" onclick="selfMark('trans',8,1,this)">1 nearly</button><button class="sm notyet" onclick="selfMark('trans',8,0,this)">0 not yet</button></div>
+</div><div class="instance">
+  <div class="qcount">Question &middot; L5</div>
+  <div class="qtext">Why do we know far more about the Roman cena than about Roman breakfast? Give one reason, and support it with a detail from your notes or from Source A.</div>
+  <div class="helpline">One reason in a full sentence, then one detail that backs it up.</div>
+  <textarea class="wtext" id="latin_in_4" oninput="saveText('latin',4)" placeholder="Type your answer in full sentences..." spellcheck="false"></textarea>
+  <div class="btnrow"><button class="btn btn-gold" id="latin_show_4" onclick="showModel('latin',4)">Show the model answer</button><span class="note">Write first, then look.</span></div>
+  <div class="model-box" id="latin_model_4"><b>Model:</b> Model: The <i>cena</i> was the social event of the day, the meal that mattered &mdash; the whole day was built towards it (work ends at the seventh hour, the baths at the eighth, the couches at the ninth, as Martial shows), so Roman writers described it. Breakfast (<i>ientaculum</i>) was tiny and private and often skipped, so nobody wrote about it.<div class="tipline"><b>1 mark = a correct point. 2 marks = the point supported by a detail from the source.</b> Answer in sentences, not notes. A reason (the <i>cena</i> was the social meal; breakfast was tiny and private) = 1. The reason plus a detail (a line of Martial, the hour it began, &lsquo;often skipped&rsquo;) = 2.</div></div>
+  <div class="selfmark" id="latin_sm_4" style="display:none"><span class="note">Mark yourself &mdash; <b>1 mark = a correct point. 2 marks = the point supported by a detail from the source.</b> Answer in sentences, not notes.</span>
+    <button class="sm nailed" onclick="selfMark('latin',4,2,this)">2 &#10003;</button><button class="sm close" onclick="selfMark('latin',4,1,this)">1 nearly</button><button class="sm notyet" onclick="selfMark('latin',4,0,this)">0 not yet</button></div>
+</div>
+        <div class="dayend" id="dayend_d5"></div>
+      </div>
+    </div>
+  </div>
+  <div class="panel" id="p-d6">
+    <div class="card">
+      <h2>Day 6 &middot; Superlative adverbs: very bravely, as quickly as possible</h2>
+      <p class="spec">Lesson 11 &middot; about 40 minutes &middot; 10 questions, 3 written</p>
+      <p><span class="lead">What the class did.</span> An <b>adjective</b> describes a person or thing and agrees with it: <i>milites fortissimi</i>, the very brave soldiers. An <b>adverb</b> describes the verb &mdash; how something is done &mdash; and never changes its ending: <i>fortissime</i>, very bravely.</p>
+<p>Lesson 11 made adverbs from the superlatives of Day 3 and Day 4. The rule is small: take off <b>-us</b>, add <b>-e</b>. <i>fortissimus</i> &rarr; <i>fortissime</i>. Then one phrase to learn: <b>quam celerrime</b> = as quickly as possible.</p>
+    </div>
+    <div class="card">
+      <h3 class="h3top">1 &middot; Read the notes, then type them into your notes file</h3>
+      <p>Read the page below twice. Then open your notes file and type the things in the list underneath it. Typing them is the point: it is how they go in. <a class="lnk" href="notes.html" target="_blank">How to set up the notes file</a>.</p>
+      <div class="bookpage"><span class="bp-date">[today&rsquo;s date]</span><span class="bp-title">Superlative Adverbs &mdash; very &hellip;ly</span><br>
+An <b>adjective</b> agrees with a noun (<i>servus optimus</i>, the very good slave). An <b>adverb</b> goes with the verb and never changes (<i>optime</i>, very well).<br>
+Rule: superlative adjective, take off <b>-us</b>, add <b>-e</b>.<br>
+<table><tr><th>superlative adjective</th><th>superlative adverb</th><th>meaning</th></tr>
+<tr><td><i>laetissimus</i></td><td><i>laetissime</i></td><td>very happily</td></tr>
+<tr><td><i>fortissimus</i></td><td><i>fortissime</i></td><td>very bravely</td></tr>
+<tr><td><i>celerrimus</i></td><td><i>celerrime</i></td><td>very quickly</td></tr>
+<tr><td><i>optimus</i></td><td><i>optime</i></td><td>very well, best</td></tr>
+<tr><td><i>pessimus</i></td><td><i>pessime</i></td><td>very badly, worst</td></tr>
+<tr><td><i>maximus</i></td><td><i>maxime</i></td><td>very greatly, very much</td></tr>
+<tr><td><i>minimus</i></td><td><i>minime</i></td><td>very little, least &mdash; and as an answer: <b>No</b></td></tr></table>
+<b>quam + superlative adverb</b> = as &hellip; as possible: <i>quam celerrime</i> = as quickly as possible.<br>
+<span class="bp-rule">-issimus agrees with a noun (very brave) &middot; -issime goes with the verb (very bravely) &middot; quam celerrime = as quickly as possible</span></div>
+      <div class="todo"><b>Type into your notes file:</b><ol><li>the heading <b>Day 6 &mdash; Superlative adverbs</b> and the date</li><li>the first two lines (adjective agrees; adverb never changes)</li><li>the table, all seven rows</li><li><i>quam celerrime = as quickly as possible</i></li><li>the boxed rule</li></ol></div>
+      <div class="copybar"><span class="cb-txt">Typed and saved?</span><button class="btn-unlock" id="unlock_d6" onclick="tickNotes('d6')">&#10003; I have typed today&rsquo;s notes</button></div>
+      <div class="lockmsg" id="lock_d6">The questions unlock when you have typed the notes.</div>
+    </div>
+    <div class="qs-locked" id="qs_d6">
+      
+      <div class="card">
+        <h3 class="h3top">2 &middot; 10 questions &mdash; one attempt each, marked straight away</h3>
+        <p class="note">Every Latin word you need is in the grey line under the question. Look at it before you answer. If you get one wrong, read the reason: that is the learning.</p>
+        <div id="mc_d6"></div>
+      </div>
+      <div class="card">
+        <h3>Write it up</h3><div class="instance">
+  <div class="qcount">Latin to English &middot; T10</div>
+  <div class="qtext"><span class="lat">servi optime laborant.</span></div>
+  <div class="helpline"><b>servus, servi</b> slave &middot; <b>optime</b> very well &middot; <b>laboro</b> I work &mdash; <i>laborant</i> = they work</div>
+  <textarea class="wtext" id="trans_in_9" oninput="saveText('trans',9)" placeholder="Type your English translation..."></textarea>
+  <div class="btnrow"><button class="btn btn-gold" id="trans_show_9" onclick="showModel('trans',9)">Show the model answer</button><span class="note">Write first, then look.</span></div>
+  <div class="model-box" id="trans_model_9"><b>Model:</b> The slaves work very well.<div class="tipline"><i>optime</i> is an adverb: very well. &lsquo;The very good slaves work&rsquo; = 1 (that is the adjective). &lsquo;The slave works&rsquo; = 1.</div></div>
+  <div class="selfmark" id="trans_sm_9" style="display:none"><span class="note">Mark yourself &mdash; <b>1 mark = the sense of the sentence; 2 marks = every word and ending right.</b></span>
+    <button class="sm nailed" onclick="selfMark('trans',9,2,this)">2 &#10003;</button><button class="sm close" onclick="selfMark('trans',9,1,this)">1 nearly</button><button class="sm notyet" onclick="selfMark('trans',9,0,this)">0 not yet</button></div>
+</div><div class="instance">
+  <div class="qcount">Latin to English &middot; T11</div>
+  <div class="qtext"><span class="lat">nauta quam celerrime navigat.</span></div>
+  <div class="helpline"><b>nauta</b> sailor &middot; <b>quam celerrime</b> as quickly as possible &middot; <b>navigo</b> I sail &mdash; <i>navigat</i> = he sails</div>
+  <textarea class="wtext" id="trans_in_10" oninput="saveText('trans',10)" placeholder="Type your English translation..."></textarea>
+  <div class="btnrow"><button class="btn btn-gold" id="trans_show_10" onclick="showModel('trans',10)">Show the model answer</button><span class="note">Write first, then look.</span></div>
+  <div class="model-box" id="trans_model_10"><b>Model:</b> The sailor sails as quickly as possible.<div class="tipline"><i>quam</i> + superlative adverb = as &hellip; as possible. &lsquo;very quickly&rsquo; = 1; &lsquo;how quickly&rsquo; = 0.</div></div>
+  <div class="selfmark" id="trans_sm_10" style="display:none"><span class="note">Mark yourself &mdash; <b>1 mark = the sense of the sentence; 2 marks = every word and ending right.</b></span>
+    <button class="sm nailed" onclick="selfMark('trans',10,2,this)">2 &#10003;</button><button class="sm close" onclick="selfMark('trans',10,1,this)">1 nearly</button><button class="sm notyet" onclick="selfMark('trans',10,0,this)">0 not yet</button></div>
+</div><div class="instance">
+  <div class="qcount">English to Latin &middot; L6</div>
+  <div class="qtext">The soldiers fight very bravely.</div>
+  <div class="helpline"><b>miles, militis</b> soldier &middot; <b>fortissime</b> very bravely &middot; <b>pugno</b> I fight<br>Word bank: milites / militem &middot; fortissime / fortissimi / fortissimus &middot; pugnant / pugnat</div>
+  <textarea class="wtext" id="latin_in_5" oninput="saveText('latin',5)" placeholder="Type your Latin..." spellcheck="false"></textarea>
+  <div class="btnrow"><button class="btn btn-gold" id="latin_show_5" onclick="showModel('latin',5)">Show the model answer</button><span class="note">Write first, then look.</span></div>
+  <div class="model-box" id="latin_model_5"><b>Model:</b> milites fortissime pugnant.<div class="tipline">&lsquo;Bravely&rsquo; is HOW they fight, so the adverb <i>fortissime</i>. <i>fortissimi</i> = 1 (that would be &lsquo;the very brave soldiers fight&rsquo;). <i>pugnat</i> = 1.</div></div>
+  <div class="selfmark" id="latin_sm_5" style="display:none"><span class="note">Mark yourself &mdash; <b>2 = every word and ending right; 1 = one ending wrong; 0 = more than one.</b></span>
+    <button class="sm nailed" onclick="selfMark('latin',5,2,this)">2 &#10003;</button><button class="sm close" onclick="selfMark('latin',5,1,this)">1 nearly</button><button class="sm notyet" onclick="selfMark('latin',5,0,this)">0 not yet</button></div>
+</div>
+        <div class="dayend" id="dayend_d6"></div>
+      </div>
+    </div>
+  </div>
+  <div class="panel" id="p-d7">
+    <div class="card">
+      <h2>Day 7 &middot; hic, haec, hoc: this, these</h2>
+      <p class="spec">Lesson 12 &middot; about 40 minutes &middot; 10 questions, 3 written</p>
+      <p><span class="lead">What the class did.</span> Lesson 12 learnt the word for <b>this</b>: <i>hic, haec, hoc</i>. It changes its ending to agree with its noun, like an adjective: <i>hic vir</i> = this man, <i>hanc puellam</i> = this girl (object), <i>hi pueri</i> = these boys.</p>
+<p>The table looks long. You only need to be sure of the doer and object rows today (nominative and accusative), singular and plural, and two odd forms: <b>huius</b> = of this, <b>huic</b> = to this. The plural is <i>bonus</i> with <i>h-</i> in front: <i>hi, hae, haec</i>.</p>
+    </div>
+    <div class="card">
+      <h3 class="h3top">1 &middot; Read the notes, then type them into your notes file</h3>
+      <p>Read the page below twice. Then open your notes file and type the things in the list underneath it. Typing them is the point: it is how they go in. <a class="lnk" href="notes.html" target="_blank">How to set up the notes file</a>.</p>
+      <div class="bookpage"><span class="bp-date">[today&rsquo;s date]</span><span class="bp-title">hic, haec, hoc &mdash; this, these</span><br>
+<table><tr><th></th><th>masculine</th><th>feminine</th><th>neuter</th></tr>
+<tr><td>doer, one (nom sg)</td><td><i>hic</i></td><td><i>haec</i></td><td><i>hoc</i></td></tr>
+<tr><td>object, one (acc sg)</td><td><i>hunc</i></td><td><i>hanc</i></td><td><i>hoc</i></td></tr>
+<tr><td>of this (gen sg)</td><td><i>huius</i></td><td><i>huius</i></td><td><i>huius</i></td></tr>
+<tr><td>to / for this (dat sg)</td><td><i>huic</i></td><td><i>huic</i></td><td><i>huic</i></td></tr>
+<tr><td>by / with this (abl sg)</td><td><i>hoc</i></td><td><i>hac</i></td><td><i>hoc</i></td></tr>
+<tr><td>doers, many (nom pl)</td><td><i>hi</i></td><td><i>hae</i></td><td><i>haec</i></td></tr>
+<tr><td>objects, many (acc pl)</td><td><i>hos</i></td><td><i>has</i></td><td><i>haec</i></td></tr>
+<tr><td>of these (gen pl)</td><td><i>horum</i></td><td><i>harum</i></td><td><i>horum</i></td></tr>
+<tr><td>to / with these (dat, abl pl)</td><td><i>his</i></td><td><i>his</i></td><td><i>his</i></td></tr></table>
+<b>The odd ones:</b> <i>huius</i> (of this) and <i>huic</i> (to this) are the same for all three genders. The plural is like <i>bonus</i> with <i>h-</i> in front, except the neuter <i>haec</i>.<br>
+<b>Two ways to use it.</b> 1. With a noun, agreeing with it: <i>hic vir</i> = this man; <i>hanc puellam</i> = this girl (object). 2. On its own: take man / woman / thing from the gender: <i>nuntius haec dixit</i> = the messenger said these things.<br>
+<b>Careful:</b> Latin <i>his</i> = to / with these. It is never English &lsquo;his&rsquo;.<br>
+<span class="bp-rule">hic agrees in gender, case and number &middot; huius, huic = all genders &middot; Latin his is never English &lsquo;his&rsquo;</span></div>
+      <div class="todo"><b>Type into your notes file:</b><ol><li>the heading <b>Day 7 &mdash; hic, haec, hoc</b> and the date</li><li>the whole table (nine rows, three columns) &mdash; it goes in a table, not a list</li><li>the two lines about the odd ones and the plural</li><li>the two ways to use it, with the examples</li><li>the boxed rule</li></ol></div>
+      <div class="copybar"><span class="cb-txt">Typed and saved?</span><button class="btn-unlock" id="unlock_d7" onclick="tickNotes('d7')">&#10003; I have typed today&rsquo;s notes</button></div>
+      <div class="lockmsg" id="lock_d7">The questions unlock when you have typed the notes.</div>
+    </div>
+    <div class="qs-locked" id="qs_d7">
+      
+      <div class="card">
+        <h3 class="h3top">2 &middot; 10 questions &mdash; one attempt each, marked straight away</h3>
+        <p class="note">Every Latin word you need is in the grey line under the question. Look at it before you answer. If you get one wrong, read the reason: that is the learning.</p>
+        <div id="mc_d7"></div>
+      </div>
+      <div class="card">
+        <h3>Write it up</h3><div class="instance">
+  <div class="qcount">Latin to English &middot; T12</div>
+  <div class="qtext"><span class="lat">hic puer servos vocat.</span></div>
+  <div class="helpline"><b>hic</b> this &middot; <b>puer</b> boy &middot; <b>servos</b> slaves (object, many) &middot; <b>voco</b> I call &mdash; <i>vocat</i> = he calls</div>
+  <textarea class="wtext" id="trans_in_11" oninput="saveText('trans',11)" placeholder="Type your English translation..."></textarea>
+  <div class="btnrow"><button class="btn btn-gold" id="trans_show_11" onclick="showModel('trans',11)">Show the model answer</button><span class="note">Write first, then look.</span></div>
+  <div class="model-box" id="trans_model_11"><b>Model:</b> This boy calls the slaves.<div class="tipline"><i>hic puer</i> = this boy, the doer. <i>servos</i> = the slaves, MANY, the object. &lsquo;The slave&rsquo; = 1. &lsquo;These boys&rsquo; = 1.</div></div>
+  <div class="selfmark" id="trans_sm_11" style="display:none"><span class="note">Mark yourself &mdash; <b>1 mark = the sense of the sentence; 2 marks = every word and ending right.</b></span>
+    <button class="sm nailed" onclick="selfMark('trans',11,2,this)">2 &#10003;</button><button class="sm close" onclick="selfMark('trans',11,1,this)">1 nearly</button><button class="sm notyet" onclick="selfMark('trans',11,0,this)">0 not yet</button></div>
+</div><div class="instance">
+  <div class="qcount">Latin to English &middot; T13</div>
+  <div class="qtext"><span class="lat">rex hanc puellam amat.</span></div>
+  <div class="helpline"><b>rex</b> king &middot; <b>hanc</b> this (f., object) &middot; <b>puellam</b> girl (object) &middot; <b>amo</b> I love &mdash; <i>amat</i> = he loves</div>
+  <textarea class="wtext" id="trans_in_12" oninput="saveText('trans',12)" placeholder="Type your English translation..."></textarea>
+  <div class="btnrow"><button class="btn btn-gold" id="trans_show_12" onclick="showModel('trans',12)">Show the model answer</button><span class="note">Write first, then look.</span></div>
+  <div class="model-box" id="trans_model_12"><b>Model:</b> The king loves this girl.<div class="tipline"><i>hanc puellam</i> both end in <i>-m</i>: the object, one girl. The king is the doer. &lsquo;This girl loves the king&rsquo; = 0.</div></div>
+  <div class="selfmark" id="trans_sm_12" style="display:none"><span class="note">Mark yourself &mdash; <b>1 mark = the sense of the sentence; 2 marks = every word and ending right.</b></span>
+    <button class="sm nailed" onclick="selfMark('trans',12,2,this)">2 &#10003;</button><button class="sm close" onclick="selfMark('trans',12,1,this)">1 nearly</button><button class="sm notyet" onclick="selfMark('trans',12,0,this)">0 not yet</button></div>
+</div><div class="instance">
+  <div class="qcount">English to Latin &middot; L7</div>
+  <div class="qtext">These soldiers love the king.</div>
+  <div class="helpline"><b>hic</b> this &middot; <b>miles, militis</b> soldier &middot; <b>rex, regis</b> king &middot; <b>amo</b> I love<br>Word bank: hi / hos / hae &middot; milites / militem &middot; regem / rex &middot; amant / amat</div>
+  <textarea class="wtext" id="latin_in_6" oninput="saveText('latin',6)" placeholder="Type your Latin..." spellcheck="false"></textarea>
+  <div class="btnrow"><button class="btn btn-gold" id="latin_show_6" onclick="showModel('latin',6)">Show the model answer</button><span class="note">Write first, then look.</span></div>
+  <div class="model-box" id="latin_model_6"><b>Model:</b> hi milites regem amant.<div class="tipline"><i>milites</i>: many soldiers, doers, masculine, so <i>hi</i>. <i>regem</i>: the king, object. <i>amant</i>: they love. <i>hos</i> = 1; <i>amat</i> = 1.</div></div>
+  <div class="selfmark" id="latin_sm_6" style="display:none"><span class="note">Mark yourself &mdash; <b>2 = every word and ending right; 1 = one ending wrong; 0 = more than one.</b></span>
+    <button class="sm nailed" onclick="selfMark('latin',6,2,this)">2 &#10003;</button><button class="sm close" onclick="selfMark('latin',6,1,this)">1 nearly</button><button class="sm notyet" onclick="selfMark('latin',6,0,this)">0 not yet</button></div>
+</div>
+        <div class="dayend" id="dayend_d7"></div>
+      </div>
+    </div>
+  </div>
+  <div class="panel" id="p-d8">
+    <div class="card">
+      <h2>Day 8 &middot; ille, illa, illud: that, those</h2>
+      <p class="spec">Lesson 13 &middot; about 40 minutes &middot; 10 questions, 3 written</p>
+      <p><span class="lead">What the class did.</span> Lesson 13 (the last before half term) learnt the word for <b>that</b>: <i>ille, illa, illud</i>. It works exactly like <i>hic</i>: it agrees with its noun, or stands on its own meaning that man / that woman / those things.</p>
+<p>Good news: its endings are the endings of <i>bonus, bona, bonum</i> with <i>ill-</i> in front, apart from three forms: <i>ille</i>, <i>illud</i> (neuter), and the odd pair <b>illius</b> = of that, <b>illi</b> = to that.</p>
+    </div>
+    <div class="card">
+      <h3 class="h3top">1 &middot; Read the notes, then type them into your notes file</h3>
+      <p>Read the page below twice. Then open your notes file and type the things in the list underneath it. Typing them is the point: it is how they go in. <a class="lnk" href="notes.html" target="_blank">How to set up the notes file</a>.</p>
+      <div class="bookpage"><span class="bp-date">[today&rsquo;s date]</span><span class="bp-title">ille, illa, illud &mdash; that, those</span><br>
+<table><tr><th></th><th>masculine</th><th>feminine</th><th>neuter</th></tr>
+<tr><td>doer, one (nom sg)</td><td><i>ille</i></td><td><i>illa</i></td><td><i>illud</i></td></tr>
+<tr><td>object, one (acc sg)</td><td><i>illum</i></td><td><i>illam</i></td><td><i>illud</i></td></tr>
+<tr><td>of that (gen sg)</td><td><i>illius</i></td><td><i>illius</i></td><td><i>illius</i></td></tr>
+<tr><td>to / for that (dat sg)</td><td><i>illi</i></td><td><i>illi</i></td><td><i>illi</i></td></tr>
+<tr><td>by / with that (abl sg)</td><td><i>illo</i></td><td><i>illa</i></td><td><i>illo</i></td></tr>
+<tr><td>doers, many (nom pl)</td><td><i>illi</i></td><td><i>illae</i></td><td><i>illa</i></td></tr>
+<tr><td>objects, many (acc pl)</td><td><i>illos</i></td><td><i>illas</i></td><td><i>illa</i></td></tr>
+<tr><td>of those (gen pl)</td><td><i>illorum</i></td><td><i>illarum</i></td><td><i>illorum</i></td></tr>
+<tr><td>to / with those (dat, abl pl)</td><td><i>illis</i></td><td><i>illis</i></td><td><i>illis</i></td></tr></table>
+Like <i>hic</i>: <i>illius</i> (of that) and <i>illi</i> (to that) are the same for all three genders. The neuter singular is <i>illud</i>. The plural is exactly <i>bonus</i> with <i>ill-</i> in front.<br>
+<b>Two forms in more than one box:</b> <i>illi</i> = to that OR those (m. doers) &middot; <i>illa</i> = that (f.) OR those things (n. pl.). The noun beside it, or the verb, decides.<br>
+<b>Use it like hic:</b> with a noun (<i>illi pueri clamant</i> = those boys are shouting) or on its own (<i>illam in foro vidi</i> = I saw that woman in the forum).<br>
+<b>hic</b> = this (near me) &middot; <b>ille</b> = that (over there).<br>
+<span class="bp-rule">ille = that &middot; illius, illi = all genders &middot; plural = bonus with ill- in front &middot; hic this, ille that</span></div>
+      <div class="todo"><b>Type into your notes file:</b><ol><li>the heading <b>Day 8 &mdash; ille, illa, illud</b> and the date</li><li>the whole table, next to your table of <i>hic</i> if you can</li><li>the line about <i>illius</i> and <i>illi</i></li><li>the two forms in more than one box</li><li>the two examples and the boxed rule</li></ol></div>
+      <div class="copybar"><span class="cb-txt">Typed and saved?</span><button class="btn-unlock" id="unlock_d8" onclick="tickNotes('d8')">&#10003; I have typed today&rsquo;s notes</button></div>
+      <div class="lockmsg" id="lock_d8">The questions unlock when you have typed the notes.</div>
+    </div>
+    <div class="qs-locked" id="qs_d8">
+      
+      <div class="card">
+        <h3 class="h3top">2 &middot; 10 questions &mdash; one attempt each, marked straight away</h3>
+        <p class="note">Every Latin word you need is in the grey line under the question. Look at it before you answer. If you get one wrong, read the reason: that is the learning.</p>
+        <div id="mc_d8"></div>
+      </div>
+      <div class="card">
+        <h3>Write it up</h3><div class="instance">
+  <div class="qcount">Latin to English &middot; T14</div>
+  <div class="qtext"><span class="lat">ille servus cibum portat.</span></div>
+  <div class="helpline"><b>ille</b> that &middot; <b>servus</b> slave &middot; <b>cibus, cibi</b> food &mdash; <i>cibum</i> = object &middot; <b>porto</b> I carry &mdash; <i>portat</i> = he carries</div>
+  <textarea class="wtext" id="trans_in_13" oninput="saveText('trans',13)" placeholder="Type your English translation..."></textarea>
+  <div class="btnrow"><button class="btn btn-gold" id="trans_show_13" onclick="showModel('trans',13)">Show the model answer</button><span class="note">Write first, then look.</span></div>
+  <div class="model-box" id="trans_model_13"><b>Model:</b> That slave carries the food.<div class="tipline"><i>ille servus</i> = that slave, the doer. <i>cibum</i> = the food, object. &lsquo;This slave&rsquo; = 1.</div></div>
+  <div class="selfmark" id="trans_sm_13" style="display:none"><span class="note">Mark yourself &mdash; <b>1 mark = the sense of the sentence; 2 marks = every word and ending right.</b></span>
+    <button class="sm nailed" onclick="selfMark('trans',13,2,this)">2 &#10003;</button><button class="sm close" onclick="selfMark('trans',13,1,this)">1 nearly</button><button class="sm notyet" onclick="selfMark('trans',13,0,this)">0 not yet</button></div>
+</div><div class="instance">
+  <div class="qcount">Latin to English &middot; T15</div>
+  <div class="qtext"><span class="lat">domina illas puellas vocat.</span></div>
+  <div class="helpline"><b>domina, dominae</b> mistress &middot; <b>illas</b> those (f., object, many) &middot; <b>puellas</b> girls (object) &middot; <b>voco</b> I call &mdash; <i>vocat</i> = she calls</div>
+  <textarea class="wtext" id="trans_in_14" oninput="saveText('trans',14)" placeholder="Type your English translation..."></textarea>
+  <div class="btnrow"><button class="btn btn-gold" id="trans_show_14" onclick="showModel('trans',14)">Show the model answer</button><span class="note">Write first, then look.</span></div>
+  <div class="model-box" id="trans_model_14"><b>Model:</b> The mistress calls those girls.<div class="tipline"><i>illas puellas</i> = those girls, MANY, the object. <i>domina</i> is the doer. &lsquo;That girl&rsquo; = 1; girls calling the mistress = 0.</div></div>
+  <div class="selfmark" id="trans_sm_14" style="display:none"><span class="note">Mark yourself &mdash; <b>1 mark = the sense of the sentence; 2 marks = every word and ending right.</b></span>
+    <button class="sm nailed" onclick="selfMark('trans',14,2,this)">2 &#10003;</button><button class="sm close" onclick="selfMark('trans',14,1,this)">1 nearly</button><button class="sm notyet" onclick="selfMark('trans',14,0,this)">0 not yet</button></div>
+</div><div class="instance">
+  <div class="qcount">English to Latin &middot; L8</div>
+  <div class="qtext">That soldier sees those ships.</div>
+  <div class="helpline"><b>ille</b> that &middot; <b>miles, militis</b> soldier &middot; <b>navis, navis (f.)</b> ship &middot; <b>video</b> I see<br>Word bank: ille / illum / illi &middot; miles / milites &middot; illas / illae / illos &middot; naves / navem &middot; videt / vident</div>
+  <textarea class="wtext" id="latin_in_7" oninput="saveText('latin',7)" placeholder="Type your Latin..." spellcheck="false"></textarea>
+  <div class="btnrow"><button class="btn btn-gold" id="latin_show_7" onclick="showModel('latin',7)">Show the model answer</button><span class="note">Write first, then look.</span></div>
+  <div class="model-box" id="latin_model_7"><b>Model:</b> ille miles illas naves videt.<div class="tipline"><i>miles</i>: one soldier, doer, masculine: <i>ille</i>. <i>naves</i>: ships, many, object, feminine: <i>illas</i>. <i>videt</i>: he sees. <i>illos</i> = 1; <i>navem</i> = 1; <i>vident</i> = 1.</div></div>
+  <div class="selfmark" id="latin_sm_7" style="display:none"><span class="note">Mark yourself &mdash; <b>2 = every word and ending right; 1 = one ending wrong; 0 = more than one.</b></span>
+    <button class="sm nailed" onclick="selfMark('latin',7,2,this)">2 &#10003;</button><button class="sm close" onclick="selfMark('latin',7,1,this)">1 nearly</button><button class="sm notyet" onclick="selfMark('latin',7,0,this)">0 not yet</button></div>
+</div>
+        <div class="dayend" id="dayend_d8"></div>
+      </div>
+    </div>
+  </div>
+  <div class="panel" id="p-d9">
+    <div class="card">
+      <h2>Day 9 &middot; Dinner Parties 2: the triclinium</h2>
+      <p class="spec">Lesson 9 &middot; about 40 minutes &middot; 8 questions, 2 written</p>
+      <p><span class="lead">What the class did.</span> Lesson 9 was the second civilisation lesson: the <b>triclinium</b>, the dining room. Three couches round a table in a U, nine places, and a rule that where you lay told everyone what you were worth. The class drew the plan, then read Horace on a dinner party&rsquo;s seating and Pliny on a mean host who gave his guests three grades of wine.</p>
+<p>Learn the plan first &mdash; the numbers run 1 to 9 round the U &mdash; then the facts, then answer the two source questions in sentences, with a detail from the source each time.</p>
+    </div>
+    <div class="card">
+      <h3 class="h3top">1 &middot; Read the notes, then type them into your notes file</h3>
+      <p>Read the page below twice. Then open your notes file and type the things in the list underneath it. Typing them is the point: it is how they go in. <a class="lnk" href="notes.html" target="_blank">How to set up the notes file</a>.</p>
+      <div class="bookpage"><span class="bp-date">[today&rsquo;s date]</span><span class="bp-title">The Triclinium &mdash; the plan and the rules</span><br>
+<div class="tricl">
+<div class="tc tc-med"><b>LECTUS MEDIUS</b> (middle couch, the couch of honour)<br>4 summus &middot; 5 medius &middot; <b>6 imus = LOCUS CONSULARIS</b></div>
+<div class="tc-row"><div class="tc tc-sum"><b>LECTUS SUMMUS</b><br>3 imus<br>2 medius<br>1 summus</div><div class="tc tc-tab"><i>mensa</i><br>the table</div><div class="tc tc-imus"><b>LECTUS IMUS</b><br><b>7 summus = HOST</b><br>8 medius<br>9 imus</div></div>
+<div class="tc tc-open">OPEN SIDE &mdash; slaves serve from here</div></div>
+<b>The facts.</b> <i>triclinium</i> = &ldquo;three couches&rdquo; (Greek <i>treis</i> + <i>kline</i>). Three couches (<i>lecti</i>) round one low table (<i>mensa</i>) in a U; the fourth side is open so slaves can serve. Each couch holds three, so nine places, numbered 1&ndash;9 round the U. On every couch the places are <i>summus</i> (top), <i>medius</i> (middle), <i>imus</i> (bottom).<br>
+<b>Rank.</b> The couch of honour is the <i>lectus medius</i>. Its bottom place, <b>6</b>, is the <i>locus consularis</i>, the place of honour. The host lies next to it at <b>7</b>, the top of the <i>lectus imus</i>, so he can talk to his chief guest.<br>
+<b>Reclining.</b> On the left elbow, head towards the table, right hand free to eat. Slaves stood and served; children sat. Sandals off, a slave washed your feet, you brought your own napkin (<i>mappa</i>).<br>
+<b>Two words.</b> <i>umbra</i> = a &ldquo;shadow&rdquo;: an uninvited guest brought along by an important man. <i>libertus</i> = a freedman, a freed slave.<br>
+<span class="bp-rule">three couches, three places each, one side open &middot; 6 = locus consularis &middot; 7 = host &middot; where you lay showed what you were worth</span></div>
+      <div class="todo"><b>Type into your notes file:</b><ol><li>the heading <b>Day 9 &mdash; Dinner Parties 2</b> and the date</li><li>a plan of the triclinium: three couches in a U, the table in the middle, the open side marked, the nine places numbered, place 6 labelled <i>locus consularis</i> and place 7 labelled <i>host</i> (draw it on paper and photograph it into the file, or make it with a 3&times;3 table)</li><li>the facts paragraph, in your own words if you like</li><li>the rank paragraph</li><li>the two words, and the boxed rule</li></ol></div>
+      <div class="copybar"><span class="cb-txt">Typed and saved?</span><button class="btn-unlock" id="unlock_d9" onclick="tickNotes('d9')">&#10003; I have typed today&rsquo;s notes</button></div>
+      <div class="lockmsg" id="lock_d9">The questions unlock when you have typed the notes.</div>
+    </div>
+    <div class="qs-locked" id="qs_d9">
+      <div class="card"><div class="srcbox"><div class="srctitle">SOURCE A &middot; Horace, <i>Satires</i> 2.8, lines 20&ndash;26</div>
+<p class="note">Fundanius describes who lay where at the dinner given by Nasidienus (&ldquo;the host himself&rdquo;). <i>summus</i> = at the top (place 1).</p>
+<table class="src">
+<tr><td><i>summus ego et prope me Viscus Thurinus et infra,</i></td><td>&lsquo;I was at the top, and next to me Viscus of Thurii, and below him,</td></tr>
+<tr><td><i>si memini, Varius; cum Servilio Balatrone</i></td><td>if I remember rightly, Varius; with Servilius Balatro</td></tr>
+<tr><td><i>Vibidius, quos Maecenas adduxerat umbras.</i></td><td>was Vibidius &mdash; the &ldquo;shadows&rdquo; Maecenas had brought along.</td></tr>
+<tr><td><i>Nomentanus erat super ipsum, Porcius infra,</i></td><td>Nomentanus was above the host himself, Porcius below him,</td></tr>
+<tr><td><i>ridiculus totas semel absorbere placentas;</i></td><td>a clown who could swallow whole cakes in one go;</td></tr>
+</table>
+<p class="note">So: Fundanius at 1, Viscus at 2, Varius at 3 (the <i>lectus summus</i>). Nomentanus, the host Nasidienus and Porcius on the <i>lectus imus</i>, with the host in the middle. Maecenas is the guest of honour; Horace never says where he lies.</p></div>
+<div class="srcbox"><div class="srctitle">SOURCE B &middot; Pliny the Younger, <i>Letters</i> 2.6 (shortened)</div>
+<p class="note">Pliny tells a young friend about a dinner he was invited to, and what he does differently.</p>
+<table class="src">
+<tr><td><i>nam sibi et paucis opima quaedam, ceteris vilia et minuta ponebat.</i></td><td>For he was serving certain rich dishes to himself and a few others, and cheap scraps to the rest.</td></tr>
+<tr><td><i>vinum etiam parvolis lagunculis in tria genera discripserat &hellip; aliud sibi et nobis, aliud minoribus amicis, aliud suis nostrisque libertis.</i></td><td>He had even sorted the wine into three grades in little flasks &hellip; one for himself and us, another for his lesser friends, another for his own freedmen and ours.</td></tr>
+<tr><td><i>&lsquo;eadem omnibus pono; ad cenam enim, non ad notam invito cunctisque rebus exaequo, quos mensa et toro aequavi.&rsquo;</i></td><td>&lsquo;I serve the same to everyone; I invite people to dinner, not to be marked down, and I treat as equals in everything those I have made equal at table and on the couch.&rsquo;</td></tr>
+<tr><td><i>&lsquo;liberti mei non idem quod ego bibunt, sed idem ego quod liberti.&rsquo;</i></td><td>&lsquo;My freedmen do not drink the same as I do &mdash; I drink the same as my freedmen.&rsquo;</td></tr>
+</table></div></div>
+      <div class="card">
+        <h3 class="h3top">2 &middot; 8 questions &mdash; one attempt each, marked straight away</h3>
+        <p class="note">Every Latin word you need is in the grey line under the question. Look at it before you answer. If you get one wrong, read the reason: that is the learning.</p>
+        <div id="mc_d9"></div>
+      </div>
+      <div class="card">
+        <h3>Source questions &mdash; write in sentences</h3><div class="instance">
+  <div class="qcount">Question &middot; T16</div>
+  <div class="qtext"><span class="">Using Source A, name two guests and say where each one lay. Use the numbers on your plan.</span></div>
+  <div class="helpline">Two or three sentences. A name, a place (a number or a couch), and the words of the poem that tell you.</div>
+  <textarea class="wtext" id="trans_in_15" oninput="saveText('trans',15)" placeholder="Type your answer in full sentences..."></textarea>
+  <div class="btnrow"><button class="btn btn-gold" id="trans_show_15" onclick="showModel('trans',15)">Show the model answer</button><span class="note">Write first, then look.</span></div>
+  <div class="model-box" id="trans_model_15"><b>Model:</b> Model: Fundanius lay at the top of the <i>lectus summus</i>, place 1 (&ldquo;I was at the top&rdquo;), with Viscus next to him at 2 and Varius below at 3. The host Nasidienus lay on the <i>lectus imus</i> with Nomentanus above him (&ldquo;Nomentanus was above the host himself&rdquo;) and Porcius below him.<div class="tipline"><b>1 mark = a correct point. 2 marks = the point supported by a detail from the source.</b> Answer in sentences, not notes. Two guests placed correctly, each with a detail from the poem = 2. Two guests placed with no detail from the poem, or one guest with a detail = 1.</div></div>
+  <div class="selfmark" id="trans_sm_15" style="display:none"><span class="note">Mark yourself &mdash; <b>1 mark = a correct point. 2 marks = the point supported by a detail from the source.</b> Answer in sentences, not notes.</span>
+    <button class="sm nailed" onclick="selfMark('trans',15,2,this)">2 &#10003;</button><button class="sm close" onclick="selfMark('trans',15,1,this)">1 nearly</button><button class="sm notyet" onclick="selfMark('trans',15,0,this)">0 not yet</button></div>
+</div><div class="instance">
+  <div class="qcount">Question &middot; L9</div>
+  <div class="qtext">What does Pliny do differently from the mean host in Source B, and why? Support your answer with a detail from the source.</div>
+  <div class="helpline">Say what Pliny does, say why, and quote or closely paraphrase a line.</div>
+  <textarea class="wtext" id="latin_in_8" oninput="saveText('latin',8)" placeholder="Type your answer in full sentences..." spellcheck="false"></textarea>
+  <div class="btnrow"><button class="btn btn-gold" id="latin_show_8" onclick="showModel('latin',8)">Show the model answer</button><span class="note">Write first, then look.</span></div>
+  <div class="model-box" id="latin_model_8"><b>Model:</b> Model: The mean host served rich dishes to himself and a few friends and cheap scraps to the rest, and graded his wine into three kinds by rank. Pliny serves the same to everyone (&ldquo;eadem omnibus pono&rdquo;), because he invites people to dinner, not to be marked down, and treats as equals &ldquo;those I have made equal at table and on the couch&rdquo; &mdash; even the freedmen, whose wine he drinks himself.<div class="tipline"><b>1 mark = a correct point. 2 marks = the point supported by a detail from the source.</b> Answer in sentences, not notes. What Pliny does + why + a detail from the letter = 2. What he does with no reason, or no detail = 1.</div></div>
+  <div class="selfmark" id="latin_sm_8" style="display:none"><span class="note">Mark yourself &mdash; <b>1 mark = a correct point. 2 marks = the point supported by a detail from the source.</b> Answer in sentences, not notes.</span>
+    <button class="sm nailed" onclick="selfMark('latin',8,2,this)">2 &#10003;</button><button class="sm close" onclick="selfMark('latin',8,1,this)">1 nearly</button><button class="sm notyet" onclick="selfMark('latin',8,0,this)">0 not yet</button></div>
+</div>
+        <div class="dayend" id="dayend_d9"></div>
+      </div>
+    </div>
+  </div>
+  <div class="panel" id="p-d10">
+    <div class="card">
+      <h2>Day 10 &middot; Chapter 7 vocabulary, and putting it all together</h2>
+      <p class="spec">Vocab tests 3 and 4 &middot; about 45 minutes &middot; 6 questions, 2 written, 24-word check</p>
+      <p><span class="lead">What the class did.</span> Over the half term the class learnt the <b>Chapter 7 word list</b> in two halves: Set A (<i>a/ab</i> to <i>laudo</i>, 22 words) and Set B (<i>maior</i> to <i>virtus</i>, 29 words), each with a class test. Most of Set B is the comparison words you have met on Days 1&ndash;6.</p>
+<p>Today: type the list into your notes (it is your revision list from now on), learn it, then a 24-word check and six review questions on the whole fortnight. On the check, type <b>one</b> English meaning; any meaning from the list counts.</p>
+    </div>
+    <div class="card">
+      <h3 class="h3top">1 &middot; Read the notes, then type them into your notes file</h3>
+      <p>Read the page below twice. Then open your notes file and type the things in the list underneath it. Typing them is the point: it is how they go in. <a class="lnk" href="notes.html" target="_blank">How to set up the notes file</a>.</p>
+      <div class="bookpage"><span class="bp-date">[today&rsquo;s date]</span><span class="bp-title">Chapter 7 Vocabulary &mdash; Sets A and B</span><br><b>Set A &middot; a/ab &rarr; laudo (22 words)</b><table><tr><th>Latin</th><th>English</th></tr><tr><td><i>a / ab (+ abl)</i></td><td>by; from</td></tr><tr><td><i>animus, animi</i></td><td>mind, spirit, soul</td></tr><tr><td><i>audax, audacis</i></td><td>bold, daring</td></tr><tr><td><i>captivus, captivi</i></td><td>captive, prisoner</td></tr><tr><td><i>castra, castrorum (n. pl.)</i></td><td>camp</td></tr><tr><td><i>celo, celare</i></td><td>I hide</td></tr><tr><td><i>clarus, -a, -um</i></td><td>famous, clear</td></tr><tr><td><i>comes, comitis</i></td><td>companion, comrade</td></tr><tr><td><i>consul, consulis</i></td><td>consul</td></tr><tr><td><i>corpus, corporis (n.)</i></td><td>body</td></tr><tr><td><i>crudelis, -e</i></td><td>cruel</td></tr><tr><td><i>custos, custodis</i></td><td>guard</td></tr><tr><td><i>et &hellip; et</i></td><td>both &hellip; and</td></tr><tr><td><i>flumen, fluminis (n.)</i></td><td>river</td></tr><tr><td><i>gero, gerere, gessi</i></td><td>I wage (war)</td></tr><tr><td><i>hic, haec, hoc</i></td><td>this, these</td></tr><tr><td><i>iam</i></td><td>now, already</td></tr><tr><td><i>ibi</i></td><td>there</td></tr><tr><td><i>ille, illa, illud</i></td><td>that, those</td></tr><tr><td><i>imperator, imperatoris</i></td><td>general, leader; emperor</td></tr><tr><td><i>incendo, incendere</i></td><td>I set on fire, I burn</td></tr><tr><td><i>laudo, laudare</i></td><td>I praise</td></tr></table><b>Set B &middot; maior &rarr; virtus (29 words)</b><table><tr><th>Latin</th><th>English</th></tr><tr><td><i>maior, maius</i></td><td>bigger, greater</td></tr><tr><td><i>maxime</i></td><td>very greatly, very much</td></tr><tr><td><i>maximus, -a, -um</i></td><td>biggest, greatest, very big</td></tr><tr><td><i>melior, melius</i></td><td>better</td></tr><tr><td><i>minime</i></td><td>no; least, very little</td></tr><tr><td><i>minimus, -a, -um</i></td><td>smallest, very little</td></tr><tr><td><i>minor, minus</i></td><td>smaller, less</td></tr><tr><td><i>modus, modi</i></td><td>manner, way, kind</td></tr><tr><td><i>moveo, movere, movi</i></td><td>I move</td></tr><tr><td><i>multo</i></td><td>much, by much</td></tr><tr><td><i>narro, narrare</i></td><td>I tell, I relate</td></tr><tr><td><i>nihil</i></td><td>nothing</td></tr><tr><td><i>optimus, -a, -um</i></td><td>best, excellent, very good</td></tr><tr><td><i>pars, partis</i></td><td>part</td></tr><tr><td><i>pauci, -ae, -a</i></td><td>few, a few</td></tr><tr><td><i>peior, peius</i></td><td>worse</td></tr><tr><td><i>pessimus, -a, -um</i></td><td>worst, very bad</td></tr><tr><td><i>plurimus, -a, -um</i></td><td>very much, very many, most</td></tr><tr><td><i>plus (+ gen)</i></td><td>more</td></tr><tr><td><i>primo</i></td><td>at first</td></tr><tr><td><i>quam</i></td><td>than; how</td></tr><tr><td><i>quam celerrime</i></td><td>as quickly as possible</td></tr><tr><td><i>resisto, resistere (+ dat)</i></td><td>I resist</td></tr><tr><td><i>sanguis, sanguinis</i></td><td>blood</td></tr><tr><td><i>sic</i></td><td>thus, in this way</td></tr><tr><td><i>sine (+ abl)</i></td><td>without</td></tr><tr><td><i>solus, -a, -um</i></td><td>alone, only</td></tr><tr><td><i>sto, stare, steti</i></td><td>I stand</td></tr><tr><td><i>virtus, virtutis</i></td><td>courage, virtue</td></tr></table><span class="bp-rule">one meaning is enough in a test &middot; nouns: learn the genitive &middot; comparison words: say the set of three</span></div>
+      <div class="todo"><b>Type into your notes file:</b><ol><li>the heading <b>Day 10 &mdash; Chapter 7 vocabulary</b> and the date</li><li>Set A: all 22 words with their meanings, as a two-column table</li><li>Set B: all 29 words with their meanings &mdash; set the comparison words out as rows: <i>bonus &rarr; melior &rarr; optimus</i></li><li>then learn them: cover the English column, say the meaning, uncover, tick or cross. Do the crosses again.</li></ol></div>
+      <div class="copybar"><span class="cb-txt">Typed and saved?</span><button class="btn-unlock" id="unlock_d10" onclick="tickNotes('d10')">&#10003; I have typed today&rsquo;s notes</button></div>
+      <div class="lockmsg" id="lock_d10">The questions unlock when you have typed the notes.</div>
+    </div>
+    <div class="qs-locked" id="qs_d10">
+      
+      <div class="card">
+        <h3 class="h3top">2 &middot; 6 questions &mdash; one attempt each, marked straight away</h3>
+        <p class="note">Every Latin word you need is in the grey line under the question. Look at it before you answer. If you get one wrong, read the reason: that is the learning.</p>
+        <div id="mc_d10"></div>
+      </div>
+      <div class="card">
+        <h3>Write it up</h3><div class="instance">
+  <div class="qcount">Latin to English &middot; T17</div>
+  <div class="qtext"><span class="lat">ille rex optimus omnium est.</span></div>
+  <div class="helpline"><b>ille</b> that &middot; <b>rex</b> king &middot; <b>optimus</b> best &middot; <b>omnium</b> of all &middot; <b>est</b> is</div>
+  <textarea class="wtext" id="trans_in_16" oninput="saveText('trans',16)" placeholder="Type your English translation..."></textarea>
+  <div class="btnrow"><button class="btn btn-gold" id="trans_show_16" onclick="showModel('trans',16)">Show the model answer</button><span class="note">Write first, then look.</span></div>
+  <div class="model-box" id="trans_model_16"><b>Model:</b> That king is the best of all.<div class="tipline"><i>ille rex</i> = that king. <i>optimus omnium</i> = the best of all. &lsquo;This king&rsquo; = 1; &lsquo;very good&rsquo; with <i>of all</i> missing = 1.</div></div>
+  <div class="selfmark" id="trans_sm_16" style="display:none"><span class="note">Mark yourself &mdash; <b>1 mark = the sense of the sentence; 2 marks = every word and ending right.</b></span>
+    <button class="sm nailed" onclick="selfMark('trans',16,2,this)">2 &#10003;</button><button class="sm close" onclick="selfMark('trans',16,1,this)">1 nearly</button><button class="sm notyet" onclick="selfMark('trans',16,0,this)">0 not yet</button></div>
+</div><div class="instance">
+  <div class="qcount">English to Latin &middot; L10</div>
+  <div class="qtext">This slave is much happier than that slave.</div>
+  <div class="helpline"><b>hic</b> this &middot; <b>servus</b> slave &middot; <b>multo</b> much &middot; <b>laetus</b> &rarr; <b>laetior</b> &middot; <b>est</b> is &middot; <b>quam</b> than &middot; <b>ille</b> that<br>Word bank: hic / hunc / hi &middot; servus / servum / servo &middot; multo &middot; laetior / laetissimus &middot; est / sunt &middot; quam &middot; ille / illum / illo</div>
+  <textarea class="wtext" id="latin_in_9" oninput="saveText('latin',9)" placeholder="Type your Latin..." spellcheck="false"></textarea>
+  <div class="btnrow"><button class="btn btn-gold" id="latin_show_9" onclick="showModel('latin',9)">Show the model answer</button><span class="note">Write first, then look.</span></div>
+  <div class="model-box" id="latin_model_9"><b>Model:</b> hic servus multo laetior est quam ille servus.<div class="tipline"><i>hic servus</i> doer; <i>multo laetior</i>; <i>quam ille servus</i>, same ending as <i>hic servus</i>. Also fully right without <i>quam</i>: <i>hic servus multo laetior est illo servo</i>. <i>quam illo servo</i> = 1 (never both).</div></div>
+  <div class="selfmark" id="latin_sm_9" style="display:none"><span class="note">Mark yourself &mdash; <b>2 = every word and ending right; 1 = one ending wrong; 0 = more than one.</b></span>
+    <button class="sm nailed" onclick="selfMark('latin',9,2,this)">2 &#10003;</button><button class="sm close" onclick="selfMark('latin',9,1,this)">1 nearly</button><button class="sm notyet" onclick="selfMark('latin',9,0,this)">0 not yet</button></div>
+</div><h3>The 24-word check</h3><p class="note">Type one English meaning and press Check (or Enter). One attempt each; the answer locks. One small spelling slip is allowed on a long word. You do not need &lsquo;I&rsquo; for a verb.</p><div id="vocabBody"></div>
+        <div class="dayend" id="dayend_d10"></div>
+      </div>
+    </div>
+  </div>
+  <div class="panel" id="p-board">
+    <div class="card">
+      <h2>Scoreboard</h2>
+      <div class="big-score" id="bigScore">0 / 0</div>
+      <p class="cta" id="boardMsg"></p>
+      <table class="board" id="boardTable"></table>
+      <h3>How confident do you feel about the fortnight&rsquo;s work now?</h3>
+      <div class="selfmark" id="ragBox">
+        <button class="sm nailed" onclick="setRag('green',this)">&#9679; Green &mdash; I could teach it back</button>
+        <button class="sm close" onclick="setRag('amber',this)">&#9679; Amber &mdash; most of it</button>
+        <button class="sm notyet" onclick="setRag('red',this)">&#9679; Red &mdash; not yet</button>
+      </div>
+      <p class="note" style="margin-top:12px">Everything here is already saved. There is nothing to hand in.</p>
+    </div>
+  </div>
+  <footer>FUNDAMENTA &middot; Year 10 Latin 2026&ndash;27 &middot; Half-Term Catch-Up &middot; Mr Beasley</footer>
+</div>
+
+<script>
+/* ===================== DATA ===================== */
+const DAYS = [{"id": "d1", "n": 1, "title": "Comparatives: braver, happier, more stupid", "short": "Comparatives", "civ": false, "minutes": 40}, {"id": "d2", "n": 2, "title": "Than without quam: the ablative of comparison, and multo", "short": "Than, two ways", "civ": false, "minutes": 40}, {"id": "d3", "n": 3, "title": "Superlatives: very brave, the bravest", "short": "Superlatives", "civ": false, "minutes": 40}, {"id": "d4", "n": 4, "title": "The irregulars: good, better, best", "short": "Irregulars", "civ": false, "minutes": 40}, {"id": "d5", "n": 5, "title": "Dinner Parties 1: the Roman day and its meals", "short": "Dinner Parties 1", "civ": true, "minutes": 40}, {"id": "d6", "n": 6, "title": "Superlative adverbs: very bravely, as quickly as possible", "short": "Superlative adverbs", "civ": false, "minutes": 40}, {"id": "d7", "n": 7, "title": "hic, haec, hoc: this, these", "short": "hic, haec, hoc", "civ": false, "minutes": 40}, {"id": "d8", "n": 8, "title": "ille, illa, illud: that, those", "short": "ille, illa, illud", "civ": false, "minutes": 40}, {"id": "d9", "n": 9, "title": "Dinner Parties 2: the triclinium", "short": "Dinner Parties 2", "civ": true, "minutes": 40}, {"id": "d10", "n": 10, "title": "Chapter 7 vocabulary, and putting it all together", "short": "Vocab & review", "civ": false, "minutes": 45}];
+const BANKS = {"d1": [{"q": "<i>laetus, laeti</i> = happy. The comparative (happier) is&hellip;", "help": "<b>laetus, laeti</b> happy &middot; the genitive is <i>laeti</i>, so the stem is <i>laet-</i>", "opts": ["laete", "laetus", "laetior", "laetam"], "a": 2, "why": "Stem <i>laet-</i> + <b>-ior</b> = <i>laetior</i>, happier. <i>laetus</i> is just &lsquo;happy&rsquo;; <i>laete</i> is the adverb &lsquo;happily&rsquo;."}, {"q": "<i>fortis, fortis</i> = brave. The comparative (braver) is&hellip;", "help": "<b>fortis, fortis</b> brave &middot; genitive <i>fortis</i>, stem <i>fort-</i>", "opts": ["fortior", "fortem", "fortus", "fortiter"], "a": 0, "why": "<i>fort-</i> + <b>-ior</b> = <i>fortior</i>. It works the same for 3rd-declension adjectives: the genitive stem is the key every time."}, {"q": "<i>ingens, ingentis</i> = huge. The comparative is&hellip;", "help": "<b>ingens, ingentis</b> huge &middot; the second word <i>ingentis</i> gives the stem <i>ingent-</i>", "opts": ["ingentior", "ingensior", "ingentem", "ingentis"], "a": 0, "why": "Use the second word of the entry: <i>ingent-</i> + <i>-ior</i> = <i>ingentior</i>. <i>ingensior</i> is built from the first word, which is the wrong stem."}, {"q": "<i>pulcher, pulchri</i> = beautiful. The comparative is&hellip;", "help": "<b>pulcher, pulchri</b> beautiful &middot; stem <i>pulchr-</i> (the <i>e</i> drops out in the genitive)", "opts": ["pulchram", "pulchrior", "pulcherior", "pulchre"], "a": 1, "why": "<i>pulchr-</i> + <i>-ior</i> = <i>pulchrior</i>. The genitive <i>pulchri</i> has no <i>e</i>, so neither does the comparative."}, {"q": "What does <i>tristior</i> mean?", "help": "<b>tristis, tristis</b> sad &middot; <i>-ior</i> = more / -er", "opts": ["sadder, more sad", "sadly", "very sad", "sad"], "a": 0, "why": "<i>-ior</i> always means <b>more</b> or <b>-er</b>. &lsquo;Very sad&rsquo; is a different ending (Day 3)."}, {"q": "<i>servus laetior est.</i>", "help": "<b>servus, servi</b> slave &middot; <b>laetior</b> happier &middot; <b>est</b> is", "opts": ["The slaves are happier.", "The slave is happy.", "The slave is happier.", "The slave is very happy."], "a": 2, "why": "<i>servus</i> is ONE slave doing it, <i>est</i> = is, <i>laetior</i> = happier."}, {"q": "<i>bellum longius</i> &mdash; what is <i>longius</i>?", "help": "<b>bellum, belli (n.)</b> war &middot; <b>longus</b> long", "opts": ["an adverb: for a long time", "the superlative: a very long war", "a 2nd-declension noun like filius", "the neuter comparative: a longer war"], "a": 3, "why": "A neuter thing takes <b>-ius</b> instead of <i>-ior</i>: <i>bellum longius</i>, a longer war. It looks like <i>filius</i> but it is not a noun."}, {"q": "Which word means <b>than</b>?", "help": "<b>quam</b> than &middot; <b>quod</b> because &middot; <b>quis</b> who? &middot; <b>cum</b> with", "opts": ["quod", "cum", "quis", "quam"], "a": 3, "why": "<i>quam</i> = than. Whenever you see <i>-ior</i> look for <i>quam</i> a few words later."}, {"q": "&lsquo;The boy is more stupid than the girl.&rsquo; <i>puer stultior est quam ___.</i> Which form goes after <i>quam</i>?", "help": "<b>puer, pueri</b> boy &middot; <b>stultus</b> stupid &middot; <b>puella, puellae</b> girl &middot; the word after <i>quam</i> has the SAME ending as the word compared (<i>puer</i> is the doer, nominative)", "opts": ["puellam", "puella", "puellae", "puellas"], "a": 1, "why": "<i>puer</i> is nominative (the doer), so the word after <i>quam</i> is nominative too: <i>puella</i>. Same case both sides."}, {"q": "<i>milites fortiores sunt quam nautae.</i>", "help": "<b>miles, militis</b> soldier &middot; <b>fortiores</b> braver (many) &middot; <b>sunt</b> are &middot; <b>quam</b> than &middot; <b>nauta, nautae (m.)</b> sailor", "opts": ["The sailors are braver than the soldiers.", "The soldiers are braver than the sailors.", "The soldiers are very brave sailors.", "The soldier is braver than the sailor."], "a": 1, "why": "<i>milites</i> comes first and carries <i>fortiores</i>: the soldiers are the braver ones. <i>quam nautae</i> = than the sailors. <i>sunt</i> and the <i>-es</i> endings make everything plural."}], "d2": [{"q": "<i>servus stultior est domino.</i> What is <i>domino</i> doing?", "help": "<b>servus</b> slave &middot; <b>stultior</b> more stupid &middot; <b>est</b> is &middot; <b>dominus, domini</b> master &mdash; <i>domino</i> ends in <b>-o</b>", "opts": ["It is the master, doing it.", "It means &lsquo;to the master&rsquo;.", "It means &lsquo;of the master&rsquo;.", "It means &lsquo;than the master&rsquo; (ablative of comparison)."], "a": 3, "why": "A word in <b>-o</b> beside a comparative, with no <i>quam</i>, is the ablative of comparison: <b>than</b> the master. The doer is <i>servus</i>."}, {"q": "The ablative singular of <i>puella</i> (1st declension) is&hellip;", "help": "<b>puella, puellae</b> girl &middot; 1st-declension ablative singular ends <b>-a</b>", "opts": ["puellis", "puellae", "puellam", "puella"], "a": 3, "why": "1st declension: ablative singular <b>-a</b>, the same shape as the nominative. That is trap (b): it looks like a doer."}, {"q": "The ablative singular of <i>servus</i> (2nd declension) is&hellip;", "help": "<b>servus, servi</b> slave &middot; 2nd-declension ablative singular ends <b>-o</b>", "opts": ["servo", "servis", "servi", "servum"], "a": 0, "why": "2nd declension: ablative singular <b>-o</b>. (<i>servis</i> is the plural.)"}, {"q": "The ablative singular of <i>rex, regis</i> (3rd declension) is&hellip;", "help": "<b>rex, regis</b> king &middot; 3rd-declension ablative singular ends <b>-e</b>, on the stem <i>reg-</i>", "opts": ["regem", "regis", "rege", "regi"], "a": 2, "why": "Stem <i>reg-</i> + <b>-e</b> = <i>rege</i>. <i>regem</i> is the object, <i>regis</i> is &lsquo;of the king&rsquo;."}, {"q": "<i>multo fortior</i> means&hellip;", "help": "<b>multo</b> much, by much &middot; <b>fortior</b> braver", "opts": ["many brave men", "much braver", "a brave crowd", "braver than many"], "a": 1, "why": "<i>multo</i> in front of a comparative = <b>much</b>: much braver. It never changes its ending."}, {"q": "Take <i>quam</i> away from <i>puer laetior est quam puella</i>. Which is right?", "help": "<b>puer</b> boy &middot; <b>laetior</b> happier &middot; <b>puella</b> girl &mdash; without <i>quam</i> the other person goes into the ablative", "opts": ["puer laetior est puella.", "puer laetior est puellam.", "puer laetior est puellae.", "puer laetior est quam puellae."], "a": 0, "why": "Drop <i>quam</i>, make <i>puella</i> ablative: 1st-declension ablative is <b>-a</b>, so it looks the same &mdash; <i>puer laetior est puella</i>."}, {"q": "Which of these is <b>not allowed</b>?", "help": "<b>servus</b> slave &middot; <b>quam</b> than &middot; <b>multo</b> much &middot; <b>fortior</b> braver", "opts": ["<i>quam servus</i> &mdash; quam and the same case", "<i>multo fortior quam servus</i>", "<i>quam servo</i> &mdash; quam and the ablative together", "<i>servo</i> &mdash; the ablative with no quam"], "a": 2, "why": "Trap (a): one or the other, never both. <i>quam servus</i> or plain <i>servo</i>; <i>quam servo</i> is wrong."}, {"q": "<i>pater tristior est filia.</i>", "help": "<b>pater, patris</b> father &middot; <b>tristior</b> sadder &middot; <b>est</b> is &middot; <b>filia, filiae</b> daughter &mdash; <i>est</i> has ONE doer; <i>filia</i> here is ablative (-a)", "opts": ["The father is sad for his daughter.", "The father and the daughter are sad.", "The father is sadder than his daughter.", "The daughter is sadder than her father."], "a": 2, "why": "Trap (b). <i>pater</i> comes first and carries <i>tristior</i>; <i>filia</i> looks like a doer but is the ablative: <b>than</b> his daughter."}, {"q": "<i>servi in villa laborant.</i> <i>in villa</i> has a preposition in front. So <i>in villa</i> means&hellip;", "help": "<b>servus</b> slave &middot; <b>in</b> in &middot; <b>villa, villae</b> house &middot; <b>laboro</b> I work", "opts": ["the house, doing it", "in the house &mdash; a place, not &lsquo;than&rsquo;", "than the house", "much"], "a": 1, "why": "Trap (c): an ablative with a preposition in front (<i>in</i>, <i>cum</i>, <i>e</i>) is never &lsquo;than&rsquo;. There is no comparative here anyway."}, {"q": "<i>rex multo saevior est militibus.</i>", "help": "<b>rex</b> king &middot; <b>multo</b> much &middot; <b>saevus</b> savage &rarr; <b>saevior</b> more savage &middot; <b>est</b> is &middot; <b>miles, militis</b> soldier &mdash; <i>militibus</i> is ablative plural (-ibus)", "opts": ["The king is more savage with the soldiers.", "The king is much more savage than the soldiers.", "The soldiers are much more savage than the king.", "The king and the soldiers are savage."], "a": 1, "why": "<i>militibus</i> beside a comparative with no preposition = <b>than the soldiers</b>. <i>multo</i> = much. <i>rex</i> is the one doer (<i>est</i>)."}], "d3": [{"q": "<i>fortis, fortis</i> = brave. The superlative (very brave, bravest) is&hellip;", "help": "<b>fortis, fortis</b> brave &middot; stem <i>fort-</i>", "opts": ["fortior", "fortus", "fortissime", "fortissimus"], "a": 3, "why": "<i>fort-</i> + <b>-issimus</b>. <i>fortior</i> is only &lsquo;braver&rsquo;."}, {"q": "<i>laetus, laeti</i> = happy. The superlative is&hellip;", "help": "<b>laetus, laeti</b> happy &middot; stem <i>laet-</i>", "opts": ["laete", "laetus", "laetior", "laetissimus"], "a": 3, "why": "<i>laet-</i> + <b>-issimus</b> = <i>laetissimus</i>, very happy / the happiest."}, {"q": "<i>pulcher, pulchri</i> = beautiful. The superlative is&hellip;", "help": "<b>pulcher, pulchri</b> beautiful &mdash; an <b>-er</b> adjective", "opts": ["pulcherrimus", "pulcherimus", "pulchrior", "pulchrissimus"], "a": 0, "why": "An <i>-er</i> adjective keeps the <i>-er</i> and adds <b>-rimus</b>: <i>pulcherrimus</i> (two r&rsquo;s)."}, {"q": "<i>facilis, facilis</i> = easy. The superlative is&hellip;", "help": "<b>facilis, facilis</b> easy &mdash; one of the small <i>-ilis</i> group", "opts": ["facile", "facilior", "facillimus", "facilissimus"], "a": 2, "why": "<i>facilis</i> and <i>difficilis</i> take <b>-limus</b>: <i>facillimus</i> (two l&rsquo;s), very easy."}, {"q": "<i>servus fortissimus</i> means&hellip;", "help": "<b>servus</b> slave &middot; <b>fortissimus</b> = <i>fortis</i> + <i>-issimus</i>", "opts": ["bravely", "a very brave slave", "a brave slave", "a braver slave"], "a": 1, "why": "<i>-issimus</i> = very / most. With nothing after it, &lsquo;very brave&rsquo; is the best English."}, {"q": "<i>fortissimus omnium</i> means&hellip;", "help": "<b>fortissimus</b> very brave / bravest &middot; <b>omnis</b> all, every &mdash; <i>omnium</i> is the genitive plural, &lsquo;of all&rsquo;", "opts": ["very brave of all", "all the brave men", "braver than all", "the bravest of all"], "a": 3, "why": "A genitive plural straight after the superlative turns it into &ldquo;the most &hellip; <b>of</b>&rdquo;: the bravest of all."}, {"q": "<i>fortior</i> or <i>fortissimus</i>: which one means <b>braver</b> (MORE brave, not most)?", "help": "<b>-ior</b> = more &middot; <b>-issimus</b> = most / very", "opts": ["fortissimus", "fortes", "fortior", "fortissime"], "a": 2, "why": "<i>-ior</i> is the comparative: braver. <i>-issimus</i> is the superlative: bravest."}, {"q": "&lsquo;the very brave girl&rsquo; (doing it) = <i>puella ___</i>", "help": "<b>puella</b> girl (feminine, one, doer) &middot; the superlative agrees with its noun using the endings of <i>bonus, bona, bonum</i>", "opts": ["fortior", "fortissima", "fortissimum", "fortissimus"], "a": 1, "why": "<i>puella</i> is feminine, one, nominative, so the superlative is <i>fortissim<b>a</b></i>. <i>fortior</i> would be &lsquo;braver&rsquo;."}, {"q": "<i>milites fortissimi sunt.</i>", "help": "<b>miles, militis</b> soldier &middot; <b>fortissimi</b> very brave (many, doers) &middot; <b>sunt</b> are", "opts": ["The soldiers are bravely.", "The soldiers are braver.", "The soldiers are very brave.", "The soldier is very brave."], "a": 2, "why": "<i>milites</i> and <i>sunt</i> are both plural; <i>fortissimi</i> agrees (m. pl. nominative). <i>-issim-</i> = very."}, {"q": "<i>rex servum fortissimum laudat.</i>", "help": "<b>rex</b> king &middot; <b>servum</b> slave (object, -um) &middot; <b>fortissimum</b> very brave (agreeing with <i>servum</i>) &middot; <b>laudo</b> I praise", "opts": ["The king praises the very brave slave.", "The king is braver than the slave.", "The very brave slave praises the king.", "The king praises the slaves."], "a": 0, "why": "<i>servum fortissimum</i> both end <i>-um</i>: the object. <i>rex</i> is the doer. One slave, very brave."}], "d4": [{"q": "<i>melior</i> means&hellip;", "help": "<b>bonus</b> good &rarr; <b>melior</b> &rarr; <b>optimus</b>", "opts": ["good", "best", "better", "well"], "a": 2, "why": "<i>melior</i> is the comparative of <i>bonus</i>: better. Think &lsquo;ameliorate&rsquo; = make better."}, {"q": "<i>optimus</i> means&hellip;", "help": "<b>bonus</b> good &rarr; <b>melior</b> better &rarr; <b>optimus</b>", "opts": ["best, very good", "badly", "good", "better"], "a": 0, "why": "<i>optimus</i> is the superlative: best / very good. An <b>optimist</b> expects the best."}, {"q": "<i>peior</i> means&hellip;", "help": "<b>malus</b> bad &rarr; <b>peior</b> &rarr; <b>pessimus</b>", "opts": ["bad", "smaller", "worst", "worse"], "a": 3, "why": "<i>peior</i> is the comparative of <i>malus</i>: worse."}, {"q": "<i>maximus</i> means&hellip;", "help": "<b>magnus</b> big &rarr; <b>maior</b> bigger &rarr; <b>maximus</b>", "opts": ["bigger", "smallest", "big", "biggest, very big"], "a": 3, "why": "<i>maximus</i> is the superlative of <i>magnus</i>: biggest, greatest, very big. <b>Maximum</b>."}, {"q": "<i>minor</i> means&hellip;", "help": "<b>parvus</b> small &rarr; <b>minor</b> &rarr; <b>minimus</b>", "opts": ["smallest", "smaller", "bigger", "small"], "a": 1, "why": "<i>minor</i> is the comparative of <i>parvus</i>: smaller. A <b>minor</b> road is the smaller one."}, {"q": "The comparative of <i>magnus</i> (big) is&hellip;", "help": "<b>magnus</b> big &mdash; irregular, so not <i>magnior</i>", "opts": ["maior", "magnior", "maximus", "magnus"], "a": 0, "why": "<i>maior</i> = bigger (<b>major</b>). <i>magnior</i> does not exist; <i>maximus</i> is the superlative."}, {"q": "The superlative of <i>malus</i> (bad) is&hellip;", "help": "<b>malus</b> bad &mdash; irregular", "opts": ["peior", "pessimus", "minimus", "malissimus"], "a": 1, "why": "<i>pessimus</i> = worst, very bad (<b>pessimist</b>). <i>malissimus</i> does not exist."}, {"q": "<i>plures</i> means&hellip;", "help": "<b>multus</b> much, many &rarr; <b>plus</b> / <b>plures</b> &rarr; <b>plurimus</b>", "opts": ["few", "more (many)", "most", "much"], "a": 1, "why": "<i>plures</i> is the plural comparative of <i>multus</i>: more. <i>plures cives</i> = more citizens."}, {"q": "<i>vinum melius est quam aqua.</i>", "help": "<b>vinum, vini (n.)</b> wine &middot; <b>melius</b> better (neuter, agreeing with <i>vinum</i>) &middot; <b>est</b> is &middot; <b>quam</b> than &middot; <b>aqua, aquae</b> water", "opts": ["The wine is good with water.", "The water is better than the wine.", "The wine is better than the water.", "The wine is the best water."], "a": 2, "why": "<i>vinum</i> first with <i>melius</i> (the neuter comparative): the wine is the better one. <i>quam aqua</i> = than the water."}, {"q": "<i>servus optimus est.</i>", "help": "<b>servus</b> slave &middot; <b>optimus</b> best / very good &middot; <b>est</b> is", "opts": ["The slave is better.", "The slave is very good (or: is the best).", "The slave is good.", "The slave is bigger."], "a": 1, "why": "<i>optimus</i> is the superlative of <i>bonus</i>: very good / the best. &lsquo;Better&rsquo; would be <i>melior</i>."}], "d5": [{"q": "The Roman day (sunrise to sunset) was divided into&hellip;", "help": "", "opts": ["twelve hours", "twenty-four hours of sixty minutes", "eight hours", "ten hours"], "a": 0, "why": "Twelve hours of daylight, <i>hora prima</i> to <i>hora duodecima</i>. The night was separate, in four watches."}, {"q": "<i>hora sexta</i>, the sixth hour, was always&hellip;", "help": "", "opts": ["sunset", "dinner time", "sunrise", "midday"], "a": 3, "why": "Six is the middle of twelve, so the sixth hour is midday whatever the season. (Our word <b>noon</b> comes from <i>hora nona</i>, the ninth, and drifted.)"}, {"q": "In midwinter a Roman hour lasted about&hellip;", "help": "", "opts": ["90 minutes", "44 minutes", "60 minutes", "75 minutes"], "a": 1, "why": "An hour was a twelfth of the daylight: about 44 minutes in midwinter, about 75 in midsummer."}, {"q": "The main meal of the day was the&hellip;", "help": "<b>cena</b> &middot; <b>prandium</b> &middot; <b>ientaculum</b> &middot; <b>salutatio</b>", "opts": ["prandium", "ientaculum", "salutatio", "cena"], "a": 3, "why": "The <i>cena</i>, from about the ninth hour: the full meal, served in courses, reclining."}, {"q": "The <i>prandium</i> was&hellip;", "help": "", "opts": ["breakfast at first light", "the drinking after dinner", "a quick, cold midday snack", "the morning call on the patron"], "a": 2, "why": "About the sixth hour: cold food, leftovers, often eaten standing. No ceremony."}, {"q": "The <i>salutatio</i> was&hellip;", "help": "<b>salutatio</b> from <i>saluto</i>, I greet", "opts": ["the dessert course", "the afternoon at the baths", "clients greeting their patron in the first hours of the morning", "the dinner party"], "a": 2, "why": "In the first and second hours clients queued at their patron&rsquo;s door to greet him. Martial&rsquo;s first line: the morning callers."}, {"q": "A <i>convivium</i> is&hellip;", "help": "<b>convivium</b> = con + vivere, &ldquo;living together&rdquo;", "opts": ["a dinner party", "any meal at all", "the dining room", "breakfast"], "a": 0, "why": "Every <i>convivium</i> is a <i>cena</i>; not every <i>cena</i> is a <i>convivium</i>. The dining room is the <i>triclinium</i>."}, {"q": "In Martial&rsquo;s poem, the dining couches are pressed down at the&hellip;", "help": "", "opts": ["sixth hour", "ninth hour", "twelfth hour", "first hour"], "a": 1, "why": "&ldquo;The ninth orders us to press down the piled-up dining couches&rdquo; &mdash; the <i>cena</i> begins at the ninth hour."}], "d6": [{"q": "The adverb from <i>fortissimus</i> (very brave) is&hellip;", "help": "take off <i>-us</i>, add <i>-e</i>", "opts": ["fortissime", "fortissimus", "fortiter", "fortissima"], "a": 0, "why": "<i>fortissim-</i> + <b>-e</b> = <i>fortissime</i>, very bravely. <i>fortissima</i> is still an adjective (feminine)."}, {"q": "<i>optime</i> means&hellip;", "help": "<b>optimus</b> best, very good &rarr; <b>optime</b>", "opts": ["badly", "very good (describing a person)", "better", "very well"], "a": 3, "why": "The <i>-e</i> makes it an adverb: very well / best. &lsquo;Very good&rsquo; would be the adjective <i>optimus</i>."}, {"q": "<i>quam celerrime</i> means&hellip;", "help": "<b>quam</b> + superlative adverb &middot; <b>celer</b> quick &rarr; <b>celerrime</b>", "opts": ["how quickly!", "more quickly", "as quickly as possible", "very quick (adjective)"], "a": 2, "why": "<i>quam</i> + a superlative adverb = as &hellip; as possible."}, {"q": "<i>servus laetissime cantat.</i>", "help": "<b>servus</b> slave &middot; <b>laetissime</b> very happily &middot; <b>canto</b> I sing &mdash; <i>cantat</i> = he sings", "opts": ["The very happy slave sings.", "The slave sings very happily.", "The slave is very happy.", "The slaves sing happily."], "a": 1, "why": "<i>laetissime</i> ends in <b>-e</b>: an adverb, so it tells you HOW he sings. &lsquo;The very happy slave&rsquo; would need <i>laetissimus</i>."}, {"q": "<i>milites fortissimi pugnant.</i> What is <i>fortissimi</i>?", "help": "<b>miles, militis</b> soldier &middot; <b>fortissimi</b> &middot; <b>pugno</b> I fight &mdash; <i>pugnant</i> = they fight", "opts": ["a noun", "an adjective, agreeing with milites: the very brave soldiers fight", "a verb", "an adverb: they fight very bravely"], "a": 1, "why": "<i>fortissim<b>i</b></i> matches <i>milites</i> (m. pl. nominative), so it is the adjective: the very brave soldiers. The adverb would be <i>fortissime</i>."}, {"q": "<i>&lsquo;dormisne?&rsquo; &lsquo;minime.&rsquo;</i> Here <i>minime</i> means&hellip;", "help": "<b>dormio</b> I sleep &mdash; <i>dormisne?</i> = are you asleep? &middot; <b>minime</b>", "opts": ["Very much", "Sleep!", "Yes", "No"], "a": 3, "why": "As an answer, <i>minime</i> = No (literally &lsquo;least of all&rsquo;)."}, {"q": "<i>maxime</i> means&hellip;", "help": "<b>maximus</b> very big, greatest &rarr; <b>maxime</b>", "opts": ["bigger", "biggest (adjective)", "very greatly, very much", "badly"], "a": 2, "why": "The adverb of <i>maximus</i>: very greatly, very much, most."}, {"q": "<i>pessime</i> means&hellip;", "help": "<b>pessimus</b> worst, very bad &rarr; <b>pessime</b>", "opts": ["well", "worse", "very badly", "very bad (adjective)"], "a": 2, "why": "<i>-e</i> = adverb: very badly, worst."}, {"q": "Which of these <b>never changes its ending</b>?", "help": "", "opts": ["the noun (servus, servum)", "the adjective (optimus, optima, optimum)", "the superlative adjective (fortissimus)", "the adverb (optime)"], "a": 3, "why": "Adverbs never agree with anything, so they never change. Adjectives change to match their noun."}, {"q": "<i>puella quam celerrime currit.</i>", "help": "<b>puella</b> girl &middot; <b>quam celerrime</b> as quickly as possible &middot; <b>curro</b> I run &mdash; <i>currit</i> = she runs", "opts": ["The girl runs more quickly than me.", "The girl runs as quickly as possible.", "How quickly the girl runs!", "The girl is very quick."], "a": 1, "why": "<i>quam</i> + <i>celerrime</i> = as quickly as possible. It describes the running."}], "d7": [{"q": "&lsquo;this man&rsquo; (doing it) = ", "help": "<b>vir, viri</b> man (masculine) &middot; doer = nominative", "opts": ["hoc vir", "hic vir", "haec vir", "hunc virum"], "a": 1, "why": "Masculine, one, doer: <i>hic</i>. <i>hunc virum</i> is the object."}, {"q": "&lsquo;this girl&rsquo; (object) = ", "help": "<b>puella</b> girl (feminine) &middot; object = accusative", "opts": ["hic puella", "hanc puellam", "hoc puellam", "haec puella"], "a": 1, "why": "Feminine, one, object: <i>hanc</i>, matching <i>puellam</i>."}, {"q": "&lsquo;this gift&rsquo; = ", "help": "<b>donum, doni (n.)</b> gift &mdash; neuter", "opts": ["hunc donum", "hic donum", "haec donum", "hoc donum"], "a": 3, "why": "Neuter, one: <i>hoc</i>, for the doer and the object alike."}, {"q": "&lsquo;these boys&rsquo; (doing it) = ", "help": "<b>puer, pueri</b> boy (masculine) &middot; many doers = nominative plural", "opts": ["hae pueri", "hi pueri", "haec pueri", "hos pueros"], "a": 1, "why": "Masculine, many, doers: <i>hi</i> (like <i>boni</i>). <i>hos pueros</i> would be the object."}, {"q": "&lsquo;these girls&rsquo; (object) = ", "help": "<b>puella</b> girl (feminine) &middot; many objects = accusative plural", "opts": ["hae puellae", "has puellas", "his puellas", "hos puellas"], "a": 1, "why": "Feminine, many, objects: <i>has</i>, matching <i>puellas</i>."}, {"q": "<i>huius</i> means&hellip;", "help": "", "opts": ["of this", "these", "to this", "this (object)"], "a": 0, "why": "<i>huius</i> = of this, for all three genders. <i>huic</i> is &lsquo;to / for this&rsquo;."}, {"q": "<i>nuntius haec dixit.</i> Here <i>haec</i> stands on its own. It means&hellip;", "help": "<b>nuntius, nuntii</b> messenger &middot; <b>dico</b> I say &mdash; <i>dixit</i> = he said &middot; <i>haec</i> with no noun beside it", "opts": ["this woman", "to these", "these things", "this man"], "a": 2, "why": "<i>haec</i> is the object of <i>dixit</i> and there is no noun with it, so it is the neuter plural: these things."}, {"q": "<i>hic servum vocat.</i>", "help": "<b>servum</b> slave (object, -um) &middot; <b>voco</b> I call &mdash; <i>vocat</i> = he calls &middot; <i>hic</i> has no noun beside it", "opts": ["These men call the slave.", "Here the slave calls.", "This man calls the slave.", "This slave calls."], "a": 2, "why": "<i>hic</i> on its own, masculine, one, doer = this man. <i>servum</i> is the object, so it cannot be &lsquo;this slave&rsquo; doing it."}, {"q": "Latin <i>his</i> means&hellip;", "help": "", "opts": ["his (belonging to him)", "this (one)", "these (doing it)", "to / with these"], "a": 3, "why": "<i>his</i> is the dative / ablative plural: to these, with these. It is never English &lsquo;his&rsquo;."}, {"q": "<i>haec puella</i> &mdash; here <i>haec</i> is&hellip;", "help": "<b>puella</b> girl, feminine, one", "opts": ["feminine, one, doer: this girl", "masculine", "genitive: of this", "neuter plural: these things"], "a": 0, "why": "The noun beside it decides. <i>puella</i> is feminine and singular, so <i>haec</i> is the feminine nominative singular: this girl."}], "d8": [{"q": "&lsquo;that man&rsquo; (doing it) = ", "help": "<b>vir</b> man (masculine) &middot; doer = nominative", "opts": ["illa vir", "illud vir", "ille vir", "illum virum"], "a": 2, "why": "Masculine, one, doer: <i>ille</i>."}, {"q": "&lsquo;that girl&rsquo; (object) = ", "help": "<b>puella</b> girl (feminine) &middot; object = accusative", "opts": ["illa puella", "ille puella", "illud puellam", "illam puellam"], "a": 3, "why": "Feminine, one, object: <i>illam</i>, matching <i>puellam</i>."}, {"q": "&lsquo;that gift&rsquo; = ", "help": "<b>donum (n.)</b> gift &mdash; neuter", "opts": ["illud donum", "illa donum", "illum donum", "ille donum"], "a": 0, "why": "Neuter, one: <i>illud</i>, doer and object alike."}, {"q": "&lsquo;those boys&rsquo; (doing it) = ", "help": "<b>puer</b> boy (masculine) &middot; many doers", "opts": ["illae pueri", "illa pueri", "illos pueros", "illi pueri"], "a": 3, "why": "Masculine, many, doers: <i>illi</i> (= <i>boni</i> with <i>ill-</i>)."}, {"q": "&lsquo;those slaves&rsquo; (object) = ", "help": "<b>servus</b> slave (masculine) &middot; many objects", "opts": ["illas servos", "illi servi", "illos servos", "illis servos"], "a": 2, "why": "Masculine, many, objects: <i>illos</i>, matching <i>servos</i>."}, {"q": "<i>illius</i> means&hellip;", "help": "", "opts": ["those", "of that", "that (object)", "to that"], "a": 1, "why": "<i>illius</i> = of that, all genders. <i>illi</i> = to that."}, {"q": "<i>illam in foro video.</i>", "help": "<b>illam</b> that (f., object), on its own &middot; <b>in foro</b> in the forum &middot; <b>video</b> I see", "opts": ["I see that woman in the forum.", "I see those things in the forum.", "That woman sees me in the forum.", "I see that man in the forum."], "a": 0, "why": "<i>illam</i> is feminine, one, object, with no noun: that woman. <i>video</i> = I see."}, {"q": "<i>illa in foro video.</i> (Careful: <i>illa</i> is the object of <i>video</i>.)", "help": "<b>illa</b> on its own, as the object &middot; <b>in foro</b> in the forum &middot; <b>video</b> I see", "opts": ["Those women see me.", "I see that man in the forum.", "I see those things in the forum.", "I see that woman in the forum."], "a": 2, "why": "<i>illa</i> as an object can only be the neuter plural: those things. &lsquo;That woman&rsquo; as an object would be <i>illam</i>."}, {"q": "<i>ille</i> means&hellip;", "help": "<b>hic</b> this (near me) &middot; <b>ille</b> that (over there)", "opts": ["that, those", "here", "who", "this, these"], "a": 0, "why": "<i>ille</i> = that; <i>hic</i> = this."}, {"q": "<i>illi pueri clamant.</i>", "help": "<b>illi</b> &middot; <b>pueri</b> boys (many, doers) &middot; <b>clamo</b> I shout &mdash; <i>clamant</i> = they shout", "opts": ["These boys are shouting.", "They shout to that boy.", "That boy shouts.", "Those boys are shouting."], "a": 3, "why": "<i>illi</i> beside <i>pueri</i> with a plural verb = those boys (nominative plural), not &lsquo;to that&rsquo;. The noun and the verb decide."}], "d9": [{"q": "<i>triclinium</i> means&hellip;", "help": "Greek <i>treis</i> + <i>kline</i>", "opts": ["three couches", "the kitchen", "three courses", "three tables"], "a": 0, "why": "The room is named after its furniture: three couches."}, {"q": "The couch of honour was the&hellip;", "help": "", "opts": ["lectus imus", "lectus medius", "mensa", "lectus summus"], "a": 1, "why": "The middle couch, facing you as you looked in. The <i>mensa</i> is the table."}, {"q": "The <i>locus consularis</i>, the place of honour, is place number&hellip;", "help": "", "opts": ["6", "7", "1", "9"], "a": 0, "why": "Place 6, the bottom (<i>imus</i>) place of the middle couch. The consul lay there so a messenger could reach him at the corner."}, {"q": "The host lay at place number&hellip;", "help": "", "opts": ["5", "6", "1", "7"], "a": 3, "why": "Place 7, the top of the <i>lectus imus</i>, right next to the guest of honour at 6."}, {"q": "A diner lay&hellip;", "help": "", "opts": ["on the right elbow, feet towards the table", "sitting upright on a stool", "flat on his back", "on the left elbow, head towards the table"], "a": 3, "why": "Left elbow on the cushions, head to the table, right hand free to eat."}, {"q": "The fourth side of the U was left open&hellip;", "help": "", "opts": ["so the host could see the door", "for the musicians", "so the slaves could serve and clear away", "because the room was too small"], "a": 2, "why": "Slaves served from the open side, washed feet and changed the table between courses."}, {"q": "An <i>umbra</i> (&ldquo;shadow&rdquo;) was&hellip;", "help": "", "opts": ["a slave who stood behind the couch", "an uninvited guest brought along by an important man", "the sweet course", "the shade of the garden triclinium"], "a": 1, "why": "The host fed the shadow in order to keep the great man who brought him. Maecenas brought two to Nasidienus&rsquo;s dinner."}, {"q": "In Source B, the mean host served&hellip;", "help": "", "opts": ["the same wine to everyone", "no wine at all", "three grades of wine, by the guests&rsquo; rank", "wine only to the freedmen"], "a": 2, "why": "&ldquo;One for himself and us, another for his lesser friends, another for the freedmen.&rdquo; Pliny does the opposite: the same to everyone."}], "d10": [{"q": "<i>hic servus multo laetior est quam ille.</i>", "help": "<b>hic</b> this &middot; <b>servus</b> slave &middot; <b>multo</b> much &middot; <b>laetior</b> happier &middot; <b>est</b> is &middot; <b>quam</b> than &middot; <b>ille</b> that man / that one", "opts": ["This slave is the happiest of all.", "That slave is much happier than this one.", "This slave is much happier than that one.", "This slave is very happy with that man."], "a": 2, "why": "<i>hic servus</i> is the doer; <i>multo laetior</i> = much happier; <i>quam ille</i> = than that one."}, {"q": "<i>illa puella optime cantat.</i>", "help": "<b>illa</b> that (f.) &middot; <b>puella</b> girl &middot; <b>optime</b> very well &middot; <b>canto</b> I sing &mdash; <i>cantat</i> = she sings", "opts": ["Those girls sing well.", "That girl sings very well.", "That girl is the best.", "That very good girl sings."], "a": 1, "why": "<i>optime</i> ends in <i>-e</i>: an adverb, very well. <i>illa puella</i> = that girl."}, {"q": "<i>rex fortissimus omnium est.</i>", "help": "<b>rex</b> king &middot; <b>fortissimus</b> bravest &middot; <b>omnium</b> of all &middot; <b>est</b> is", "opts": ["The king is the bravest of all.", "The king is very brave for all.", "The king is braver than all.", "All the kings are brave."], "a": 0, "why": "Superlative + genitive plural = the most &hellip; of: the bravest of all."}, {"q": "<i>nautae stultiores sunt militibus.</i>", "help": "<b>nautae</b> sailors &middot; <b>stultiores</b> more stupid (many) &middot; <b>sunt</b> are &middot; <b>militibus</b> (ablative plural) &mdash; no <i>quam</i>", "opts": ["The sailors are more stupid with the soldiers.", "The sailors and soldiers are very stupid.", "The soldiers are more stupid than the sailors.", "The sailors are more stupid than the soldiers."], "a": 3, "why": "A bare ablative beside a comparative = than. The sailors carry <i>stultiores</i>."}, {"q": "&lsquo;these gifts&rsquo; = ", "help": "<b>donum (n.)</b> gift &middot; neuter plural", "opts": ["hae dona", "hi dona", "hos dona", "haec dona"], "a": 3, "why": "Neuter plural of <i>hic</i> is <i>haec</i>, for doers and objects alike: <i>haec dona</i>."}, {"q": "Which word is the <b>superlative</b> (most / very)?", "help": "<b>malus</b> bad &rarr; <b>peior</b> &rarr; <b>pessimus</b>", "opts": ["peior", "malus", "pessimus", "peius"], "a": 2, "why": "<i>pessimus</i> = worst, very bad. <i>peior</i> and <i>peius</i> are the comparative (worse)."}]};
+const TRANS = [{"day": "d1", "n": 1, "help": "<b>dominus, domini</b> master &middot; <b>stultus</b> stupid, so <b>stultior</b> = more stupid &middot; <b>est</b> is &middot; <b>quam</b> than &middot; <b>servus, servi</b> slave", "model": "The master is more stupid than the slave.", "tip": "<i>dominus</i> is the doer and carries <i>stultior</i>; <i>quam servus</i> = than the slave. &lsquo;The slave is more stupid than the master&rsquo; has the comparison backwards = 0. &lsquo;The master is stupid&rsquo; (no <i>more</i>, no <i>than</i>) = 1.", "lat": "dominus stultior est quam servus.", "civ": false}, {"day": "d1", "n": 1, "help": "<b>filia, filiae</b> daughter &middot; <b>laetior</b> happier &middot; <b>est</b> is &middot; <b>quam</b> than &middot; <b>filius, filii</b> son", "model": "The daughter is happier than the son.", "tip": "<i>filia</i> first, with <i>laetior</i>: the daughter is the happier one. Backwards = 0. &lsquo;The daughter is happy&rsquo; = 1.", "lat": "filia laetior est quam filius.", "civ": false}, {"day": "d2", "n": 2, "help": "<b>puella, puellae</b> girl &middot; <b>laetior</b> happier &middot; <b>est</b> is &middot; <b>servus, servi</b> slave &mdash; <i>servo</i> = ablative, no <i>quam</i>", "model": "The girl is happier than the slave.", "tip": "<i>servo</i> is &lsquo;than the slave&rsquo;. &lsquo;To the slave&rsquo; or &lsquo;with the slave&rsquo; = 0, because a bare ablative beside a comparative is <i>than</i>. &lsquo;The girl is happy&rsquo; = 1.", "lat": "puella laetior est servo.", "civ": false}, {"day": "d2", "n": 2, "help": "<b>nauta, nautae (m.)</b> sailor &middot; <b>multo</b> much &middot; <b>fortiores</b> braver (many) &middot; <b>sunt</b> are &middot; <b>miles, militis</b> soldier &mdash; <i>militibus</i> = ablative plural", "model": "The sailors are much braver than the soldiers.", "tip": "<i>nautae</i> are the doers (<i>sunt</i>, plural). <i>multo</i> = much. <i>militibus</i> = than the soldiers. Backwards = 0; &lsquo;much&rsquo; missing = 1.", "lat": "nautae multo fortiores sunt militibus.", "civ": false}, {"day": "d3", "n": 3, "help": "<b>miles, militis</b> soldier &middot; <b>fortissimus</b> very brave / the bravest &middot; <b>est</b> is", "model": "The soldier is very brave.", "tip": "&lsquo;The soldier is the bravest&rsquo; is also right. &lsquo;The soldier is braver&rsquo; (comparative) = 1. &lsquo;The soldiers&rsquo; = 1.", "lat": "miles fortissimus est.", "civ": false}, {"day": "d3", "n": 3, "help": "<b>puella</b> girl &middot; <b>pulcherrima</b> very beautiful / most beautiful (f.) &middot; <b>omnium</b> of all &middot; <b>est</b> is", "model": "The girl is the most beautiful of all.", "tip": "<i>omnium</i> after the superlative = &lsquo;the most &hellip; of all&rsquo;. &lsquo;The girl is very beautiful&rsquo; with <i>of all</i> missing = 1.", "lat": "puella pulcherrima omnium est.", "civ": false}, {"day": "d4", "n": 4, "help": "<b>dominus</b> master &middot; <b>peior</b> worse &middot; <b>est</b> is &middot; <b>quam</b> than &middot; <b>servus</b> slave", "model": "The master is worse than the slave.", "tip": "<i>peior</i> = worse (comparative of <i>malus</i>). Backwards = 0; &lsquo;bad&rsquo; or &lsquo;worst&rsquo; = 1.", "lat": "dominus peior est quam servus.", "civ": false}, {"day": "d4", "n": 4, "help": "<b>rex</b> king &middot; <b>maximus</b> greatest, biggest, very great &middot; <b>omnium</b> of all &middot; <b>est</b> is", "model": "The king is the greatest of all.", "tip": "&lsquo;The king is the biggest of all&rsquo; is also right. &lsquo;Very great&rsquo; with <i>of all</i> missing = 1. &lsquo;Bigger&rsquo; = 1.", "lat": "rex maximus omnium est.", "civ": false}, {"day": "d5", "n": 5, "help": "Write two or three sentences. Name the activity, name the hour, and quote or closely paraphrase the line of the poem it comes from.", "model": "Model: In the first and second hours people paid their morning calls (&ldquo;the first hour and the second wear out those paying their morning calls&rdquo;). At the eighth hour they exercised at the wrestling-grounds (&ldquo;the eighth is enough &hellip; for the oiled wrestling-grounds&rdquo;). Other right answers: the advocates at work in the third hour; rest at the sixth; work ending at the seventh.", "tip": "<b>1 mark = a correct point. 2 marks = the point supported by a detail from the source.</b> Answer in sentences, not notes. Two activities each with the hour and a detail from the poem = 2. Two activities with no hour, or hours with no detail from the poem = 1. One activity = 1.", "lat": "Using Source A, give two things a Roman did before dinner, and say at which hour each one happened.", "civ": true}, {"day": "d6", "n": 6, "help": "<b>servus, servi</b> slave &middot; <b>optime</b> very well &middot; <b>laboro</b> I work &mdash; <i>laborant</i> = they work", "model": "The slaves work very well.", "tip": "<i>optime</i> is an adverb: very well. &lsquo;The very good slaves work&rsquo; = 1 (that is the adjective). &lsquo;The slave works&rsquo; = 1.", "lat": "servi optime laborant.", "civ": false}, {"day": "d6", "n": 6, "help": "<b>nauta</b> sailor &middot; <b>quam celerrime</b> as quickly as possible &middot; <b>navigo</b> I sail &mdash; <i>navigat</i> = he sails", "model": "The sailor sails as quickly as possible.", "tip": "<i>quam</i> + superlative adverb = as &hellip; as possible. &lsquo;very quickly&rsquo; = 1; &lsquo;how quickly&rsquo; = 0.", "lat": "nauta quam celerrime navigat.", "civ": false}, {"day": "d7", "n": 7, "help": "<b>hic</b> this &middot; <b>puer</b> boy &middot; <b>servos</b> slaves (object, many) &middot; <b>voco</b> I call &mdash; <i>vocat</i> = he calls", "model": "This boy calls the slaves.", "tip": "<i>hic puer</i> = this boy, the doer. <i>servos</i> = the slaves, MANY, the object. &lsquo;The slave&rsquo; = 1. &lsquo;These boys&rsquo; = 1.", "lat": "hic puer servos vocat.", "civ": false}, {"day": "d7", "n": 7, "help": "<b>rex</b> king &middot; <b>hanc</b> this (f., object) &middot; <b>puellam</b> girl (object) &middot; <b>amo</b> I love &mdash; <i>amat</i> = he loves", "model": "The king loves this girl.", "tip": "<i>hanc puellam</i> both end in <i>-m</i>: the object, one girl. The king is the doer. &lsquo;This girl loves the king&rsquo; = 0.", "lat": "rex hanc puellam amat.", "civ": false}, {"day": "d8", "n": 8, "help": "<b>ille</b> that &middot; <b>servus</b> slave &middot; <b>cibus, cibi</b> food &mdash; <i>cibum</i> = object &middot; <b>porto</b> I carry &mdash; <i>portat</i> = he carries", "model": "That slave carries the food.", "tip": "<i>ille servus</i> = that slave, the doer. <i>cibum</i> = the food, object. &lsquo;This slave&rsquo; = 1.", "lat": "ille servus cibum portat.", "civ": false}, {"day": "d8", "n": 8, "help": "<b>domina, dominae</b> mistress &middot; <b>illas</b> those (f., object, many) &middot; <b>puellas</b> girls (object) &middot; <b>voco</b> I call &mdash; <i>vocat</i> = she calls", "model": "The mistress calls those girls.", "tip": "<i>illas puellas</i> = those girls, MANY, the object. <i>domina</i> is the doer. &lsquo;That girl&rsquo; = 1; girls calling the mistress = 0.", "lat": "domina illas puellas vocat.", "civ": false}, {"day": "d9", "n": 9, "help": "Two or three sentences. A name, a place (a number or a couch), and the words of the poem that tell you.", "model": "Model: Fundanius lay at the top of the <i>lectus summus</i>, place 1 (&ldquo;I was at the top&rdquo;), with Viscus next to him at 2 and Varius below at 3. The host Nasidienus lay on the <i>lectus imus</i> with Nomentanus above him (&ldquo;Nomentanus was above the host himself&rdquo;) and Porcius below him.", "tip": "<b>1 mark = a correct point. 2 marks = the point supported by a detail from the source.</b> Answer in sentences, not notes. Two guests placed correctly, each with a detail from the poem = 2. Two guests placed with no detail from the poem, or one guest with a detail = 1.", "lat": "Using Source A, name two guests and say where each one lay. Use the numbers on your plan.", "civ": true}, {"day": "d10", "n": 10, "help": "<b>ille</b> that &middot; <b>rex</b> king &middot; <b>optimus</b> best &middot; <b>omnium</b> of all &middot; <b>est</b> is", "model": "That king is the best of all.", "tip": "<i>ille rex</i> = that king. <i>optimus omnium</i> = the best of all. &lsquo;This king&rsquo; = 1; &lsquo;very good&rsquo; with <i>of all</i> missing = 1.", "lat": "ille rex optimus omnium est.", "civ": false}];
+const LATIN = [{"day": "d1", "n": 1, "help": "<b>nauta, nautae (m.)</b> sailor &middot; <b>fortis</b> brave &rarr; <b>fortior</b> braver &middot; <b>est</b> is &middot; <b>quam</b> than &middot; <b>miles, militis</b> soldier<br>Word bank: nauta / nautam &middot; fortior / fortis / fortiorem &middot; est / sunt &middot; quam &middot; miles / militem", "model": "nauta fortior est quam miles.", "tip": "<i>nauta</i> = the sailor, doing it (nominative). <i>fortior</i> = braver, one. <i>est</i> = is. <i>quam miles</i>: same ending as <i>nauta</i>, so nominative <i>miles</i>, not <i>militem</i>. Word order can change; the endings cannot.", "en": "The sailor is braver than the soldier.", "civ": false}, {"day": "d2", "n": 2, "help": "<b>dominus, domini</b> master &middot; <b>stultus</b> &rarr; <b>stultior</b> &middot; <b>est</b> is &middot; <b>servus, servi</b> slave<br>Word bank: dominus / dominum &middot; stultior / stultus &middot; est / sunt &middot; servo / servus / servum", "model": "dominus stultior est servo.", "tip": "No <i>quam</i>, so the slave goes into the ablative: <i>servo</i>. <i>dominus</i> is the doer. <i>quam servo</i> = 1 (trap a). <i>servum</i> = 1.", "en": "The master is more stupid than the slave. (Write it WITHOUT quam.)", "civ": false}, {"day": "d3", "n": 3, "help": "<b>servus, servi</b> slave &middot; <b>stultus</b> stupid &rarr; <b>stultissimus</b> &middot; <b>est</b> is<br>Word bank: servus / servum &middot; stultissimus / stultior / stultissimi &middot; est / sunt", "model": "servus stultissimus est.", "tip": "<i>servus</i>: one slave, the doer. <i>stultissimus</i>: masculine, one, nominative, matching <i>servus</i>. <i>stultior</i> = 1 (that is &lsquo;more stupid&rsquo;). <i>stultissimi</i> = 1 (plural).", "en": "The slave is very stupid.", "civ": false}, {"day": "d4", "n": 4, "help": "<b>puella, puellae</b> girl &middot; <b>bonus</b> &rarr; <b>melior</b> better &middot; <b>est</b> is &middot; <b>quam</b> than &middot; <b>puer, pueri</b> boy<br>Word bank: puella / puellam &middot; melior / melius / optima &middot; est / sunt &middot; quam &middot; puer / puerum", "model": "puella melior est quam puer.", "tip": "<i>puella</i> doer; <i>melior</i> (m/f form, one); <i>quam puer</i> &mdash; same ending as <i>puella</i>, nominative. <i>optima</i> = 1 (that is &lsquo;best&rsquo;). <i>puerum</i> after <i>quam</i> = 1. <i>puella melior est puero</i> (ablative, Day 2) is also fully right.", "en": "The girl is better than the boy.", "civ": false}, {"day": "d5", "n": 5, "help": "One reason in a full sentence, then one detail that backs it up.", "model": "Model: The <i>cena</i> was the social event of the day, the meal that mattered &mdash; the whole day was built towards it (work ends at the seventh hour, the baths at the eighth, the couches at the ninth, as Martial shows), so Roman writers described it. Breakfast (<i>ientaculum</i>) was tiny and private and often skipped, so nobody wrote about it.", "tip": "<b>1 mark = a correct point. 2 marks = the point supported by a detail from the source.</b> Answer in sentences, not notes. A reason (the <i>cena</i> was the social meal; breakfast was tiny and private) = 1. The reason plus a detail (a line of Martial, the hour it began, &lsquo;often skipped&rsquo;) = 2.", "en": "Why do we know far more about the Roman cena than about Roman breakfast? Give one reason, and support it with a detail from your notes or from Source A.", "civ": true}, {"day": "d6", "n": 6, "help": "<b>miles, militis</b> soldier &middot; <b>fortissime</b> very bravely &middot; <b>pugno</b> I fight<br>Word bank: milites / militem &middot; fortissime / fortissimi / fortissimus &middot; pugnant / pugnat", "model": "milites fortissime pugnant.", "tip": "&lsquo;Bravely&rsquo; is HOW they fight, so the adverb <i>fortissime</i>. <i>fortissimi</i> = 1 (that would be &lsquo;the very brave soldiers fight&rsquo;). <i>pugnat</i> = 1.", "en": "The soldiers fight very bravely.", "civ": false}, {"day": "d7", "n": 7, "help": "<b>hic</b> this &middot; <b>miles, militis</b> soldier &middot; <b>rex, regis</b> king &middot; <b>amo</b> I love<br>Word bank: hi / hos / hae &middot; milites / militem &middot; regem / rex &middot; amant / amat", "model": "hi milites regem amant.", "tip": "<i>milites</i>: many soldiers, doers, masculine, so <i>hi</i>. <i>regem</i>: the king, object. <i>amant</i>: they love. <i>hos</i> = 1; <i>amat</i> = 1.", "en": "These soldiers love the king.", "civ": false}, {"day": "d8", "n": 8, "help": "<b>ille</b> that &middot; <b>miles, militis</b> soldier &middot; <b>navis, navis (f.)</b> ship &middot; <b>video</b> I see<br>Word bank: ille / illum / illi &middot; miles / milites &middot; illas / illae / illos &middot; naves / navem &middot; videt / vident", "model": "ille miles illas naves videt.", "tip": "<i>miles</i>: one soldier, doer, masculine: <i>ille</i>. <i>naves</i>: ships, many, object, feminine: <i>illas</i>. <i>videt</i>: he sees. <i>illos</i> = 1; <i>navem</i> = 1; <i>vident</i> = 1.", "en": "That soldier sees those ships.", "civ": false}, {"day": "d9", "n": 9, "help": "Say what Pliny does, say why, and quote or closely paraphrase a line.", "model": "Model: The mean host served rich dishes to himself and a few friends and cheap scraps to the rest, and graded his wine into three kinds by rank. Pliny serves the same to everyone (&ldquo;eadem omnibus pono&rdquo;), because he invites people to dinner, not to be marked down, and treats as equals &ldquo;those I have made equal at table and on the couch&rdquo; &mdash; even the freedmen, whose wine he drinks himself.", "tip": "<b>1 mark = a correct point. 2 marks = the point supported by a detail from the source.</b> Answer in sentences, not notes. What Pliny does + why + a detail from the letter = 2. What he does with no reason, or no detail = 1.", "en": "What does Pliny do differently from the mean host in Source B, and why? Support your answer with a detail from the source.", "civ": true}, {"day": "d10", "n": 10, "help": "<b>hic</b> this &middot; <b>servus</b> slave &middot; <b>multo</b> much &middot; <b>laetus</b> &rarr; <b>laetior</b> &middot; <b>est</b> is &middot; <b>quam</b> than &middot; <b>ille</b> that<br>Word bank: hic / hunc / hi &middot; servus / servum / servo &middot; multo &middot; laetior / laetissimus &middot; est / sunt &middot; quam &middot; ille / illum / illo", "model": "hic servus multo laetior est quam ille servus.", "tip": "<i>hic servus</i> doer; <i>multo laetior</i>; <i>quam ille servus</i>, same ending as <i>hic servus</i>. Also fully right without <i>quam</i>: <i>hic servus multo laetior est illo servo</i>. <i>quam illo servo</i> = 1 (never both).", "en": "This slave is much happier than that slave.", "civ": false}];
+const VOCAB = [{"la": "audax, audacis", "en": "bold, daring", "acc": ["bold", "daring"], "set": "A"}, {"la": "captivus, captivi", "en": "captive, prisoner", "acc": ["captive", "prisoner"], "set": "A"}, {"la": "celo, celare", "en": "I hide", "acc": ["hide", "i hide", "conceal"], "set": "A"}, {"la": "clarus, -a, -um", "en": "famous, clear", "acc": ["famous", "clear", "bright"], "set": "A"}, {"la": "comes, comitis", "en": "companion, comrade", "acc": ["companion", "comrade", "friend"], "set": "A"}, {"la": "corpus, corporis (n.)", "en": "body", "acc": ["body"], "set": "A"}, {"la": "crudelis, -e", "en": "cruel", "acc": ["cruel"], "set": "A"}, {"la": "custos, custodis", "en": "guard", "acc": ["guard", "guardian"], "set": "A"}, {"la": "flumen, fluminis (n.)", "en": "river", "acc": ["river"], "set": "A"}, {"la": "gero, gerere, gessi", "en": "I wage (war)", "acc": ["wage", "i wage", "wage war", "carry on", "carry"], "set": "A"}, {"la": "iam", "en": "now, already", "acc": ["now", "already"], "set": "A"}, {"la": "incendo, incendere", "en": "I set on fire, I burn", "acc": ["set on fire", "burn", "i burn", "set fire to", "i set on fire"], "set": "A"}, {"la": "maior, maius", "en": "bigger, greater", "acc": ["bigger", "greater", "larger"], "set": "B"}, {"la": "melior, melius", "en": "better", "acc": ["better"], "set": "B"}, {"la": "minime", "en": "no; least, very little", "acc": ["no", "least", "very little", "not at all"], "set": "B"}, {"la": "minor, minus", "en": "smaller, less", "acc": ["smaller", "less", "lesser"], "set": "B"}, {"la": "moveo, movere, movi", "en": "I move", "acc": ["move", "i move"], "set": "B"}, {"la": "multo", "en": "much, by much", "acc": ["much", "by much", "by far"], "set": "B"}, {"la": "pars, partis", "en": "part", "acc": ["part"], "set": "B"}, {"la": "pauci, -ae, -a", "en": "few, a few", "acc": ["few", "a few"], "set": "B"}, {"la": "plus (+ gen)", "en": "more", "acc": ["more", "more of"], "set": "B"}, {"la": "quam", "en": "than; how", "acc": ["than", "how"], "set": "B"}, {"la": "quam celerrime", "en": "as quickly as possible", "acc": ["as quickly as possible", "as fast as possible", "as quick as possible"], "set": "B"}, {"la": "virtus, virtutis", "en": "courage, virtue", "acc": ["courage", "virtue", "bravery"], "set": "B"}];
+const TABS = [{"id": "start", "label": "Start"}, {"id": "d1", "label": "Day 1", "scored": true}, {"id": "d2", "label": "Day 2", "scored": true}, {"id": "d3", "label": "Day 3", "scored": true}, {"id": "d4", "label": "Day 4", "scored": true}, {"id": "d5", "label": "Day 5", "scored": true}, {"id": "d6", "label": "Day 6", "scored": true}, {"id": "d7", "label": "Day 7", "scored": true}, {"id": "d8", "label": "Day 8", "scored": true}, {"id": "d9", "label": "Day 9", "scored": true}, {"id": "d10", "label": "Day 10", "scored": true}, {"id": "board", "label": "Scoreboard"}];
+const MAXPTS = {};
+DAYS.forEach(d=>{ MAXPTS[d.id]=BANKS[d.id].length; });
+MAXPTS.trans = TRANS.length*2; MAXPTS.latin = LATIN.length*2; MAXPTS.vocab = VOCAB.length;
+
+/* ===================== CLOUD (shared Vestigia store) ===================== */
+const CLOUD = { endpoint:"https://vestigia-store.mrbeasley930.workers.dev", book:"y10int27-h1" };
+const LESSON = { id:"INTH1", title:"Half-Term Catch-Up" };
+let IDENTITY = null;
+function userKey(){ return IDENTITY ? (IDENTITY.cls+"::"+IDENTITY.cand) : "anon"; }
+function fullKey(){ return CLOUD.book+"::"+userKey(); }
+const CloudStore = {
+  async pull(){
+    if(!CLOUD.endpoint||!IDENTITY) return null;
+    try{ const r=await fetch(CLOUD.endpoint+"?key="+encodeURIComponent(fullKey()),{headers:{"x-vestigia-token":"vp_8c7103b52959b06cb55526bf"},method:"GET"});
+      if(!r.ok) return null; const j=await r.json(); return j&&j.data?j.data:null;
+    }catch(e){ console.warn("cloud pull failed; this device only.",e); return null; }
+  },
+  async push(blob){
+    if(!CLOUD.endpoint||!IDENTITY) return false;
+    try{ const r=await fetch(CLOUD.endpoint,{method:"POST",headers:{ "x-vestigia-token":"vp_8c7103b52959b06cb55526bf","Content-Type":"application/json"},
+        body:JSON.stringify({key:fullKey(),cls:IDENTITY.cls,cand:IDENTITY.cand,book:CLOUD.book,data:blob,savedAt:new Date().toISOString()})});
+      return r.ok;
+    }catch(e){ console.warn("cloud push failed; kept on this device.",e); return false; }
+  }
+};
+let state = {};
+function storeKey(){ return "fundamenta_Y10INTH1_" + (IDENTITY ? (IDENTITY.cls+"_"+IDENTITY.cand) : "default"); }
+function safeGet(k){ try { return localStorage.getItem(k); } catch(e){ return null; } }
+function safeSet(k,v){ try { localStorage.setItem(k,v); } catch(e){} }
+function save(){ safeSet(storeKey(), JSON.stringify(state)); mirrorToCloud(); }
+
+function tabPoints(k){ const s=state[k]; if(!s) return 0; let t=0; Object.keys(s).forEach(i=>{ t+=Number(s[i])||0; }); return t; }
+function cloudSummary(){
+  let got=0,max=0; const sections={};
+  for(const k in MAXPTS){ const p=tabPoints(k); sections[k]={pts:p,max:MAXPTS[k]}; got+=p; max+=MAXPTS[k]; }
+  const detail=TRANS.map((t,i)=>({ id:'trans'+i, s:'trans', lat:t.lat, a:(state.transText&&state.transText[i])||'', m:t.model, mk:(state.trans&&state.trans[i]!=null)?state.trans[i]:null }))
+   .concat(LATIN.map((t,i)=>({ id:'latin'+i, s:'latin', lat:t.en, a:(state.latinText&&state.latinText[i])||'', m:t.model, mk:(state.latin&&state.latin[i]!=null)?state.latin[i]:null })));
+  return { name:(IDENTITY?IDENTITY.cand:''), lesson:LESSON.id, title:LESSON.title, coreGot:got, coreTot:max, rag:(state.rag||''), notes:(state.notes||{}),
+    sections:sections, detail:detail, text:summaryText(), days:dayProgress(), savedAt:new Date().toISOString(), state:state };
+}
+function dayProgress(){ const o={}; DAYS.forEach(d=>{ const p=dayTotals(d.id); o[d.id]={pts:p.pts,max:p.max,done:p.done,total:p.total,notes:!!(state.notes&&state.notes[d.id])}; }); return o; }
+function summaryText(){
+  let out="Half-Term Catch-Up (Y10)\n";
+  DAYS.forEach(d=>{ const p=dayTotals(d.id); out+="  Day "+d.n+" "+d.short+": "+p.pts+"/"+p.max+(p.done>=p.total&&p.total>0?" (finished)":" ("+p.done+"/"+p.total+" done)")+"\n"; });
+  const nd=state.notes?Object.keys(state.notes).filter(k=>state.notes[k]):[];
+  out+="Notes typed: "+(nd.length?nd.map(k=>k.toUpperCase()).join(", "):"none yet")+"\n";
+  if(state.rag) out+="Confidence: "+state.rag+"\n";
+  TRANS.forEach((t,i)=>{ if(state.transText&&state.transText[i]) out+="  T"+(i+1)+" (Day "+t.n+"): "+state.transText[i]+"\n"; });
+  LATIN.forEach((t,i)=>{ if(state.latinText&&state.latinText[i]) out+="  L"+(i+1)+" (Day "+t.n+"): "+state.latinText[i]+"\n"; });
+  VOCAB.forEach((v,i)=>{ if(state.vocabText&&state.vocabText[i]!=null) out+="  V"+(i+1)+" "+v.la+": "+state.vocabText[i]+(state.vocab&&state.vocab[i]?" ✓":" ✗")+"\n"; });
+  return out;
+}
+let _mirrorTimer=null;
+function mirrorToCloud(){ if(!IDENTITY) return; setSync("saving"); clearTimeout(_mirrorTimer);
+  _mirrorTimer=setTimeout(async()=>{ const ok=await CloudStore.push(cloudSummary()); setSync(ok?"cloud":"offline"); },600); }
+function setSync(s){ const el=document.getElementById('savestatus'); if(!el) return;
+  const map={ saving:["saving…","#8fb3c9"], cloud:["✓ saved to class store","#5cc98a"], offline:["saved on this device — will sync when online","#d4af37"], device:["saved on this device","#5cc98a"] };
+  const m=map[s]||map.device; el.textContent=m[0]; el.style.color=m[1]; }
+
+/* ===================== day totals (for ticks) ===================== */
+function dayTotals(did){
+  let pts=0,max=0,done=0,total=0;
+  const b=BANKS[did]; total+=b.length; max+=b.length;
+  if(state[did]) Object.keys(state[did]).forEach(i=>{ done++; pts+=Number(state[did][i])||0; });
+  TRANS.forEach((t,i)=>{ if(t.day===did){ total++; max+=2; if(state.trans&&state.trans[i]!=null){ done++; pts+=state.trans[i]; } } });
+  LATIN.forEach((t,i)=>{ if(t.day===did){ total++; max+=2; if(state.latin&&state.latin[i]!=null){ done++; pts+=state.latin[i]; } } });
+  if(did==='d10'){ total+=VOCAB.length; max+=VOCAB.length; if(state.vocab) Object.keys(state.vocab).forEach(i=>{ done++; pts+=Number(state.vocab[i])||0; }); }
+  return {pts,max,done,total};
+}
+function refreshScore(){ let g=0,m=0; for(const k in MAXPTS){ g+=tabPoints(k); m+=MAXPTS[k]; }
+  document.getElementById('scoreNow').textContent=g; document.getElementById('scoreMax').textContent=m;
+  DAYS.forEach(d=>{ const p=dayTotals(d.id); const pill=document.getElementById('pill_'+d.id); if(pill) pill.classList.toggle('done',p.done>=p.total);
+    const de=document.getElementById('dayend_'+d.id); if(de){ if(p.done>=p.total){ de.className='dayend show'; const nx=DAYS.find(x=>x.n===d.n+1);
+      de.innerHTML='<b>Day '+d.n+' done: '+p.pts+' / '+p.max+'.</b> '+(nx?'Tomorrow: <a class="lnk" href="#" onclick="go(\''+nx.id+'\');return false;">Day '+nx.n+' &middot; '+nx.short+'</a>.':'That is the whole fortnight. Go to the Scoreboard and set your confidence colour.'); } else de.className='dayend'; } }); }
+
+/* ===================== gated notes ===================== */
+function tickNotes(key){ state.notes=state.notes||{}; if(state.notes[key]) return; state.notes[key]=true; save(); applyNotes(key); }
+function applyNotes(key){ const qs=document.getElementById('qs_'+key); if(qs) qs.style.display='block';
+  const lk=document.getElementById('lock_'+key); if(lk) lk.style.display='none';
+  const b=document.getElementById('unlock_'+key); if(b){ b.classList.add('doneit'); b.textContent='✓ Done — questions unlocked'; } }
+function restoreNotes(){ if(!state.notes) return; Object.keys(state.notes).forEach(k=>{ if(state.notes[k]) applyNotes(k); }); }
+function setRag(v,btn){ state.rag=v; document.querySelectorAll('#ragBox .sm').forEach(s=>s.classList.remove('chosen')); if(btn) btn.classList.add('chosen'); save(); }
+function restoreRag(){ if(!state.rag) return; const el=document.querySelector('#ragBox .sm.'+({green:'nailed',amber:'close',red:'notyet'}[state.rag])); if(el) el.classList.add('chosen'); }
+
+/* ===================== sign-in gate ===================== */
+function showGate(){
+  const ov=document.createElement('div'); ov.id='rp-gate';
+  ov.style.cssText="position:fixed;inset:0;z-index:9999;background:rgba(15,25,45,.94);display:flex;align-items:center;justify-content:center;padding:20px;font-family:Georgia,serif;";
+  ov.innerHTML='<div style="max-width:430px;width:100%;background:#fff;border-top:8px solid #d4af37;border-radius:14px;padding:26px 26px 22px;box-shadow:0 18px 50px rgba(0,0,0,.4);color:#1a2a3a;">'
+    +'<div style="font-size:13px;letter-spacing:1px;color:#2E75B6;font-weight:700;">YEAR 10 LATIN · 2026–27 · HALF TERM</div>'
+    +'<div style="font-size:22px;color:#1F3864;font-weight:800;margin:2px 0 4px;">Half-Term Catch-Up</div>'
+    +'<div style="font-size:13px;color:#556;margin-bottom:16px;">Sign in so your work saves and follows you to any computer.</div>'
+    +'<label style="font-size:13px;color:#1F3864;font-weight:700;">Class code</label>'
+    +'<input id="g-cls" autocomplete="off" placeholder="Y10" style="width:100%;box-sizing:border-box;margin:5px 0 12px;padding:11px;border-radius:8px;border:1px solid #c5d0e0;font-size:15px;font-family:Georgia,serif;">'
+    +'<label style="font-size:13px;color:#1F3864;font-weight:700;">Your name</label>'
+    +'<input id="g-cand" autocomplete="off" placeholder="First name" style="width:100%;box-sizing:border-box;margin:5px 0 4px;padding:11px;border-radius:8px;border:1px solid #c5d0e0;font-size:15px;font-family:Georgia,serif;">'
+    +'<div id="g-err" style="color:#c00;font-size:12.5px;min-height:17px;margin:3px 0 6px;"></div>'
+    +'<button id="g-go" style="width:100%;padding:12px;border:0;border-radius:8px;background:#1F3864;color:#fff;font-weight:700;font-size:15px;cursor:pointer;font-family:Georgia,serif;">Start my work</button>'
+    +'<div style="font-size:11.5px;color:#7e93a3;margin-top:13px;line-height:1.5;">Class code <b>Y10</b>. Use the same name every time, so your work joins up.</div></div>';
+  document.body.appendChild(ov);
+  document.getElementById('g-go').addEventListener('click',signIn);
+  ov.addEventListener('keydown',function(e){ if(e.key==='Enter'){ e.preventDefault(); signIn(); } });
+  document.getElementById('g-cls').focus();
+}
+async function signIn(){
+  const cls=(document.getElementById('g-cls').value||'').trim().toUpperCase().replace(/\s+/g,'');
+  const cand=(document.getElementById('g-cand').value||'').trim();
+  const err=document.getElementById('g-err');
+  if(!cls){ err.textContent="Enter your class code."; return; }
+  if(!/^.{2,40}$/.test(cand)){ err.textContent="Please enter your name (2-40 characters)."; return; }
+  IDENTITY={cls:cls,cand:cand.charAt(0).toUpperCase()+cand.slice(1)};
+  const go_=document.getElementById('g-go'); if(go_) go_.textContent="Loading…";
+  const remote=await CloudStore.pull();
+  if(remote&&remote.state){ state=remote.state; }
+  else { try{ state=JSON.parse(safeGet(storeKey())||"{}"); }catch(e){ state={}; } }
+  save();
+  const g=document.getElementById('rp-gate'); if(g) g.remove();
+  const who=document.getElementById('whoami'); if(who) who.innerHTML='Signed in: <b style="color:#d4af37">'+IDENTITY.cls+' · '+IDENTITY.cand+'</b>';
+  restoreAll(); setSync(remote?"cloud":"offline");
+  /* open the first unfinished day */
+  const nx=DAYS.find(d=>{ const p=dayTotals(d.id); return p.done<p.total; });
+  if(nx && Object.keys(state).length) go(nx.id);
+}
+function signOut(){ IDENTITY=null; location.reload(); }
+
+/* ===================== tabs ===================== */
+function renderTabs(){
+  document.getElementById('tabs').innerHTML = TABS.map(t=>{
+    let done=""; if(t.scored){ const p=dayTotals(t.id); if(p.total>0&&p.done>=p.total) done=" <span class='done'>&#10003;</span>"; }
+    return `<button class="tab" data-tab="${t.id}" onclick="go('${t.id}')">${t.label}${done}</button>`; }).join("");
+  const active=document.querySelector('.panel.active');
+  if(active){ const id=active.id.replace('p-',''); const b=document.querySelector(`.tab[data-tab="${id}"]`); if(b) b.classList.add('active'); }
+}
+function go(id){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('p-'+id).classList.add('active');
+  const b=document.querySelector(`.tab[data-tab="${id}"]`); if(b) b.classList.add('active');
+  if(id==='board') renderBoard();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* ===================== multiple choice ===================== */
+function renderMC(key){
+  const c=document.getElementById('mc_'+key); const bank=BANKS[key];
+  c.innerHTML=bank.map((item,i)=>`
+    <div class="instance" id="${key}_${i}">
+      <div class="qcount">Question ${i+1} of ${bank.length}</div>
+      <div class="qtext">${item.q}</div>
+      <div class="helpline">${item.help||''}</div>
+      <div class="opts" id="${key}_opts_${i}">${item.opts.map((o,j)=>`<button class="opt" onclick="pickMC('${key}',${i},${j})">${o}</button>`).join("")}</div>
+      <div class="fb" id="${key}_fb_${i}"></div>
+    </div>`).join("");
+}
+function pickMC(key,i,j){
+  const box=document.getElementById(`${key}_${i}`); if(box.dataset.answered) return;
+  const ans=BANKS[key][i].a;
+  state.pick=state.pick||{}; state.pick[`${key}_${i}`]=j;
+  applyMC(box,key,i,j,ans); addPoint(key,i, j===ans?1:0);
+}
+function applyMC(box,key,i,j,ans){
+  box.dataset.answered="1"; const opts=box.querySelectorAll('.opt'); opts.forEach(o=>o.classList.add('locked'));
+  const fb=document.getElementById(`${key}_fb_${i}`); const why=BANKS[key][i].why||"";
+  if(j===ans){ opts[j].classList.add('correct'); fb.className="fb good show"; fb.innerHTML="<b>Correct.</b> "+why; }
+  else { opts[j].classList.add('wrong'); opts[ans].classList.add('correct'); fb.className="fb bad show"; fb.innerHTML="<b>Not quite.</b> "+why; }
+}
+function restoreMC(key){ if(!state.pick) return; BANKS[key].forEach((it,i)=>{ const p=state.pick[`${key}_${i}`];
+  if(p!==undefined){ const box=document.getElementById(`${key}_${i}`); if(box&&!box.dataset.answered) applyMC(box,key,i,p,it.a); } }); }
+function addPoint(key,i,pts){ state[key]=state[key]||{}; state[key][i]=pts; save(); refreshScore(); renderTabs(); }
+
+/* ===================== typed write-ups ===================== */
+function saveText(kind,i){ const k=kind+'Text'; state[k]=state[k]||{}; state[k][i]=document.getElementById(kind+'_in_'+i).value; save(); }
+function showModel(kind,i){ document.getElementById(kind+'_model_'+i).classList.add('show'); document.getElementById(kind+'_sm_'+i).style.display='flex';
+  const b=document.getElementById(kind+'_show_'+i); if(b) b.disabled=true; const ta=document.getElementById(kind+'_in_'+i); if(ta) ta.readOnly=true; }
+function selfMark(kind,i,v,btn){ if(state[kind]&&state[kind][i]!=null) return; state[kind]=state[kind]||{}; state[kind][i]=v;
+  const sm=document.getElementById(kind+'_sm_'+i); sm.querySelectorAll('.sm').forEach(s=>s.classList.remove('chosen')); if(btn) btn.classList.add('chosen'); sm.querySelectorAll('.sm').forEach(s=>s.disabled=true);
+  save(); refreshScore(); renderTabs(); }
+function restoreTyped(kind,arr){
+  arr.forEach((t,i)=>{ const ta=document.getElementById(kind+'_in_'+i); if(!ta) return;
+    const txt=state[kind+'Text']&&state[kind+'Text'][i]; if(txt) ta.value=txt;
+    const mk=state[kind]&&state[kind][i]; if(mk!=null){ showModel(kind,i); const sm=document.getElementById(kind+'_sm_'+i); const cls={2:'nailed',1:'close',0:'notyet'}[mk];
+      const b=sm.querySelector('.sm.'+cls); if(b) b.classList.add('chosen'); sm.querySelectorAll('.sm').forEach(s=>s.disabled=true); } });
+}
+
+/* ===================== vocab check (Day 10) ===================== */
+function norm(s){ return (s||'').toLowerCase().replace(/[^a-z\s']/g,' ').replace(/\s+/g,' ').trim().replace(/^(i|to|a|an|the) /,''); }
+function lev(a,b){ const m=a.length,n=b.length; if(!m) return n; if(!n) return m; const d=[]; for(let i=0;i<=m;i++){ d[i]=[i]; } for(let j=1;j<=n;j++) d[0][j]=j;
+  for(let i=1;i<=m;i++) for(let j=1;j<=n;j++) d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]===b[j-1]?0:1)); return d[m][n]; }
+function vocabOk(i,typed){ const t=norm(typed); if(!t) return false;
+  return VOCAB[i].acc.some(a=>{ const n=norm(a); if(n===t) return true; return n.length>=5 && lev(n,t)<=1; }); }
+function renderVocab(){ const c=document.getElementById('vocabBody'); if(!c) return;
+  c.innerHTML=VOCAB.map((v,i)=>`<div class="vrow" id="v_${i}"><div class="vl">${v.la}<span class="vset">Set ${v.set}</span></div>
+    <input type="text" id="v_in_${i}" autocomplete="off" spellcheck="false" placeholder="English meaning" onkeydown="if(event.key==='Enter'){event.preventDefault();checkVocab(${i});}">
+    <button class="btn btn-ghost" id="v_btn_${i}" onclick="checkVocab(${i})">Check</button><div class="vans" id="v_ans_${i}"></div></div>`).join(''); }
+function checkVocab(i){ if(state.vocab&&state.vocab[i]!=null) return; const inp=document.getElementById('v_in_'+i); const typed=inp.value;
+  const ok=vocabOk(i,typed); state.vocabText=state.vocabText||{}; state.vocabText[i]=typed; state.vocab=state.vocab||{}; state.vocab[i]=ok?1:0;
+  applyVocab(i); save(); refreshScore(); renderTabs(); }
+function applyVocab(i){ const inp=document.getElementById('v_in_'+i); const ok=state.vocab[i]===1; inp.value=(state.vocabText&&state.vocabText[i])||''; inp.readOnly=true; inp.className=ok?'ok':'no';
+  document.getElementById('v_btn_'+i).disabled=true; const a=document.getElementById('v_ans_'+i); a.className='vans '+(ok?'good':'bad'); a.innerHTML=(ok?'✓ ':'✗ ')+'<i>'+VOCAB[i].la+'</i> = '+VOCAB[i].en; }
+function restoreVocab(){ if(!state.vocab) return; Object.keys(state.vocab).forEach(i=>applyVocab(i)); }
+
+/* ===================== scoreboard ===================== */
+function renderBoard(){
+  let g=0,m=0; let rows='<tr><th>Day</th><th>What</th><th>Score</th><th>Done</th></tr>';
+  DAYS.forEach(d=>{ const p=dayTotals(d.id); g+=p.pts; m+=p.max; rows+=`<tr><td class="n">Day ${d.n}</td><td>${d.title}</td><td>${p.pts} / ${p.max}</td><td>${p.done>=p.total?'✓ finished':(p.done+' of '+p.total)}</td></tr>`; });
+  document.getElementById('boardTable').innerHTML=rows; document.getElementById('bigScore').textContent=g+' / '+m;
+  const pct=m?Math.round(100*g/m):0; const anyDone=DAYS.some(d=>dayTotals(d.id).done>0);
+  let msg=''; if(!anyDone) msg='Nothing yet. Start with Day 1.';
+  else if(pct>=80) msg='Over 80%. You have caught up with the class, and some of them would not score this.';
+  else if(pct>=60) msg='Over 60%. The ideas are in. Look at the red answers on the days you found hardest and read the reasons again.';
+  else if(pct>=40) msg='Over 40%. You have done the work, which is the hard part. Mr Beasley will go through the rest with you.';
+  else msg='Every answered question counts, right or wrong: Mr Beasley can see exactly what to go over with you.';
+  document.getElementById('boardMsg').textContent=msg;
+}
+
+/* ===================== restore & init ===================== */
+function restoreAll(){ DAYS.forEach(d=>restoreMC(d.id)); restoreTyped('trans',TRANS); restoreTyped('latin',LATIN); restoreVocab(); restoreRag(); restoreNotes(); refreshScore(); renderTabs(); }
+DAYS.forEach(d=>renderMC(d.id)); renderVocab(); renderTabs(); refreshScore();
+showGate();
+</script>
+</body>
+</html>
